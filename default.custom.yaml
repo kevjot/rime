@@ -1,0 +1,39 @@
+customization:
+  distribution_code_name: Weasel
+  distribution_version: 0.14.3
+  generator: "Rime::SwitcherSettings"
+  modified_time: "Thu Mar 30 19:15:55 2023"
+  rime_version: 1.5.3
+patch:
+  "ascii_composer/good_old_caps_lock": false
+  "ascii_composer/switch_key":
+    Caps_Lock: commit_code
+    Control_L: noop
+    Control_R: noop
+    Eisu_toggle: clear
+    Shift_L: commit_code
+    Shift_R: commit_code
+  "key_binder/bindings":
+    - {accept: "Control+k", send: "Shift+Delete", when: composing}
+    - {accept: Tab, send: Page_Down, when: composing}
+    - {accept: "Shift+Tab", send: Page_Up, when: composing}
+    - {accept: semicolon, send: 2, when: has_menu}
+    - {accept: apostrophe, send: 3, when: has_menu}
+    - {accept: equal, send: Page_Down, when: composing}
+    - {accept: minus, send: Page_Up, when: composing}
+    - {accept: bracketleft, send: Page_Up, when: composing}
+    - {accept: bracketright, send: Page_Down, when: composing}
+  "key_binder/select_first_character": bracketleft
+  "key_binder/select_last_character": bracketright
+  "menu/page_size": 4
+  schema_list:
+    - {schema: flypy}
+    - {schema: pinyin}
+    - {schema: english}
+    - {schema: "nihongo-r"}
+  "switcher/caption": "[方案菜单]"
+  "switcher/hotkeys":
+    - F4
+  "switcher/save_options":
+    - full_shape
+    - ascii_punct
