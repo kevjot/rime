@@ -6,9 +6,8 @@ schema:
   name: 自然码双拼
   version: "0.1"
   author:
-    - double pinyin layout by 鶴
+    - double pinyin layout by 周
     - Rime schema by 佛振 <chen.sst@gmail.com>
-    - Modified by Lufs_X <i@isteed.cc>
   description: |
     自然码双拼方案
     中英混输支持
@@ -64,7 +63,7 @@ emoji_suggestion:
   tips: false
 
 english:
-  dictionary: dicts/english
+  dictionary: english_extended
   enable_completion: true
   enable_sentence: false
   initial_quality: 0

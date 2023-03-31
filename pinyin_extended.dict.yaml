@@ -11,7 +11,7 @@ use_preset_vocabulary: true
 import_tables:
   # 覆盖词频
   - dicts/simp # 最小拼音词典
-  - dicts/simp-ext # 原字表中除单字外部分
+  - dicts/simp_ext # 原字表中除单字外部分
 
   # - dicts/sogou # 搜狗分类词库合集
   - dicts/sogou_net # 网络流行语

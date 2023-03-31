@@ -61,7 +61,7 @@ emoji_suggestion:
   tips: false
 
 english:
-  dictionary: dicts/english
+  dictionary: english_extended
   enable_completion: true
   enable_sentence: false
   initial_quality: 0
