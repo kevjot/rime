@@ -61,7 +61,7 @@ emoji_suggestion:
   tips: false
 
 english:
-  dictionary: english
+  dictionary: dicts/english
   enable_completion: true
   enable_sentence: false
   initial_quality: 0
@@ -132,7 +132,7 @@ speller:
     - derive/^([csz])h/h$1/ # hc、hs、hz -> ch、sh、zh
 
 translator:
-  dictionary: extended
+  dictionary: pinyin_extended
   preedit_format:
     - xform/([nl])v/$1ü/
     - xform/([nl])ue/$1üe/
