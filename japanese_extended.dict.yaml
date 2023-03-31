@@ -1,0 +1,10 @@
+# Rime dictionary
+# encoding: utf-8
+
+---
+name: japanese_extended
+version: "2023-03-31"
+
+import_tables:
+  - dicts/nihongo_r
+...

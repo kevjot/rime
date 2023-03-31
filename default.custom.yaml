@@ -2,7 +2,7 @@ customization:
   distribution_code_name: Weasel
   distribution_version: 0.14.3
   generator: "Rime::SwitcherSettings"
-  modified_time: "Fri Mar 31 13:08:25 2023"
+  modified_time: "Fri Mar 31 14:53:39 2023"
   rime_version: 1.5.3
 patch:
   "ascii_composer/good_old_caps_lock": false
@@ -28,6 +28,7 @@ patch:
     - {schema: english}
     - {schema: double_pinyin}
     - {schema: double_pinyin_flypy}
+    - {schema: japanese}
   "switcher/caption": "[方案菜单]"
   "switcher/hotkeys":
     - F4

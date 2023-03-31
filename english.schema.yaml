@@ -4,7 +4,7 @@
 
 schema:
   schema_id: english
-  name: 英文单词
+  name: 英文输入法
   version: "0.1"
   description:
     英文单词输入法
@@ -26,7 +26,7 @@ translator:
   encode_commit_history: false
   enable_sentence: false
   enable_user_dict: false
-  dictionary: dicts/english
+  dictionary: english_extended
 
 speller:
   alphabet:     # 使該方案支持大寫拉丁字母輸入
