@@ -1,0 +1,8 @@
+2023/04/01-13:38:00.468000 17908 Log #25: 0 ops saved to Table #28 OK
+2023/04/01-13:38:00.470000 17908 Archiving C:\Users\Ryan\AppData\Roaming\Rime\en.userdb/000025.log: OK
+2023/04/01-13:38:00.472000 17908 Log #27: 0 ops saved to Table #29 OK
+2023/04/01-13:38:00.474000 17908 Archiving C:\Users\Ryan\AppData\Roaming\Rime\en.userdb/000027.log: OK
+2023/04/01-13:38:00.475000 17908 Table #5: 5 entries OK
+2023/04/01-13:38:00.475000 17908 Table #10: 2 entries OK
+2023/04/01-13:38:00.479000 17908 Archiving C:\Users\Ryan\AppData\Roaming\Rime\en.userdb/MANIFEST-000024: OK
+2023/04/01-13:38:00.531000 17908 **** Repaired leveldb C:\Users\Ryan\AppData\Roaming\Rime\en.userdb; recovered 2 files; 403 bytes. Some data may have been lost. ****

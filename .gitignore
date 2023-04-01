@@ -1,14 +1,17 @@
-# OS & IDE
-.DS_Store
-.idea
-.vs
-.vscode
-
-# profile
-build
-sync
-installation.yaml
+.idea/
+.vscode/
+node_modules/
+dist/
+tmp/
+temp/
+logs/
+*.log
+**/dump.rdb
+**/.DS_Store
+build/
+sync/
 user.yaml
-
-# user db
-*.userdb
+installation.yaml
+.place_holder
+**/*.userdb
+installation.yaml
