@@ -18,19 +18,19 @@ schema:
 switches:
   - name: ascii_mode
     reset: 0
-    states: [中文, 西文]
+    states: [ 中文, 西文 ]
   - name: full_shape
     reset: 0
-    states: [半角, 全角]
+    states: [ 半角, 全角 ]
   - name: ascii_punct
     reset: 1
-    states: [。，, ．，]
+    states: [ 。，, ．， ]
   - name: traditionalization
     reset: 0
-    states: [ 简体, 繁體 ]
+    states: [ 汉字, 漢字 ]
   - name: emoji_suggestion
     # reset: 1
-    states: ["🈚️️", "🈶️"]
+    states: [ "無😑️", "有😁️" ]
 
 engine:
   processors:
@@ -190,6 +190,7 @@ translator:
     # - xform/([jqxy])v/$1u/
     # - xform/([nl])v/$1ü/
     # - xform/ // # 去掉上屏字符间空格
+  prism: zh.flypy # 值与id相同, 如果去掉会变全拼
   contextual_suggestions: true
   max_homophones: 7
 

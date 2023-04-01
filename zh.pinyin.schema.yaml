@@ -3,7 +3,7 @@
 
 schema:
   schema_id: zh.pinyin
-  name: 拼音输入
+  name: 拼音
   version: "0.1"
   author:
     - 佛振 <chen.sst@gmail.com>
@@ -16,19 +16,19 @@ schema:
 switches:
   - name: ascii_mode
     reset: 0
-    states: [中文, 西文]
+    states: [ 中文, 西文 ]
   - name: full_shape
     reset: 0
-    states: [半角, 全角]
+    states: [ 半角, 全角 ]
   - name: ascii_punct
     reset: 1
-    states: [。，, ．，]
+    states: [ 。，, ．， ]
   - name: traditionalization
     reset: 0
-    states: [ 简体, 繁體 ]
+    states: [ 汉字, 漢字 ]
   - name: emoji_suggestion
     # reset: 1
-    states: ["🈚️️", "🈶️"]
+    states: [ "無😑️", "有😁️" ]
 
 engine:
   processors:

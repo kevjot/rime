@@ -9,10 +9,8 @@ vocabulary: essay/essay-zh-hans
 use_preset_vocabulary: true
 
 import_tables:
-  # 覆盖词频
-  - ./dicts_zh/simp # 最小拼音词典
-  - ./dicts_zh/simp_ext # 原字表中除单字外部分
-
+  - ./dicts_zh/pinyin.8105 # 通用规范汉字表
+  - ./dicts_zh/pinyin.xiandaihanyuchangyongcibiao # 现代汉语常用词表
   - ./dicts_zh/thuocl_animal # 动物
   - ./dicts_zh/thuocl_caijing # 财经
   - ./dicts_zh/thuocl_food # 饮食

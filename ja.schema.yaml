@@ -5,7 +5,7 @@
 
 schema:
   schema_id: ja
-  name: 日文输入
+  name: 日文
   version: "0.1"
   author:
     - TianHeng <2417647441@qq.com>

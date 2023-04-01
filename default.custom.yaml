@@ -12,7 +12,7 @@ patch:
     Control_R: noop
     Eisu_toggle: clear
     Shift_L: commit_code
-    Shift_R: commit_code
+    Shift_R: noop
   "key_binder/bindings":
     - {accept: "Control+k", send: "Shift+Delete", when: composing}
     - {accept: Tab, send: Page_Down, when: composing}

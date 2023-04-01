@@ -4,7 +4,7 @@
 
 schema:
   schema_id: en
-  name: 英文输入
+  name: 英文
   version: "0.1"
   description:
     英文单词输入法
@@ -20,7 +20,6 @@ engine:
     - key_binder
     - speller
     - recognizer
-    # - punctuator
     - selector
     - navigator
     - express_editor
@@ -28,12 +27,10 @@ engine:
     - matcher
     - ascii_segmentor
     - abc_segmentor
-    - punct_segmentor
     - fallback_segmentor
   translators:
     - table_translator
-    - punct_translator
-    # - echo_translator
+    - echo_translator
   filters:
     - uniquifier
 
@@ -43,11 +40,11 @@ translator:
   enable_sentence: false
   enable_user_dict: false
   dictionary: en
-  # spelling_hints: 9
+  spelling_hints: 9
 
 speller:
-  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA-
-  initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA-
+  alphabet: "zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA"
+  initials: "zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA"
   # delimiter: " '"
   algebra:
     # 拼写规则的本质，是把字典按照规则改写，而不是把输入的按键码转写。
@@ -56,7 +53,7 @@ speller:
     - derive/^(.+)$/\L$1/
     # 把小写的单词转写为全大写写
     - derive/^([a-z].+)$/\U$1/
-    # 把单词转写为首字母大写
+    # 把小写的单词转写为首字母大写
     - derive/^([a-zA-Z])/\U$1/
     # 把小写的单词转写为前2字母大写
     - derive/^([a-z][a-z])/\U$1/
