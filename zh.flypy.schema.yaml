@@ -13,7 +13,7 @@ schema:
     中英混输支持
     自定义词库
   dependencies:
-    - english
+    # - english
 
 switches:
   - name: ascii_mode
@@ -53,7 +53,7 @@ engine:
     - punct_translator
     - lua_translator@date_translator # 动态日期时间输入
     - table_translator@custom_phrase # 用户自定义词典
-    - table_translator@english # 英文输入
+    # - table_translator@english # 英文输入
     - script_translator
   filters:
     - simplifier@emoji_suggestion
@@ -67,14 +67,14 @@ emoji_suggestion:
   option_name: emoji_suggestion
   tips: false
 
-english:
-  dictionary: en
-  enable_completion: true
-  enable_sentence: false
-  initial_quality: 0
+# english:
+#   dictionary: en
+#   enable_completion: true
+#   enable_sentence: false
+#   initial_quality: 0
 
 speller:
-  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA-/
+  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA/
   delimiter: " '"
   algebra:
     - erase/^xx$/
