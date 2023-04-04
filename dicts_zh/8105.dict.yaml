@@ -32,7 +32,7 @@
 name: pinyin.8105
 version: "0.1"
 sort: by_weight
-vocabulary: essay/essay-zh-hans
+vocabulary: octagram/essay-zh-hans
 ...
 ### 按需启用
 # 「这、那」的口语读音
