@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 schema:
-  schema_id: zh.pinyin
+  schema_id: zh_pinyin
   name: 拼音
   version: "0.1"
   author:
@@ -155,7 +155,7 @@ speller:
     - derive/^([csz])h/h$1/ # hc、hs、hz -> ch、sh、zh
 
 translator:
-  dictionary: zh.pinyin
+  dictionary: zh_pinyin
   preedit_format:
     - xform/([nl])v/$1ü/
     - xform/([nl])ue/$1üe/

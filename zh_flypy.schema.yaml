@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 schema:
-  schema_id: zh.flypy
+  schema_id: zh_flypy
   name: 小鹤双拼
   version: "0.1"
   author:
@@ -162,7 +162,7 @@ speller:
     - abbrev/^(.).+$/$1/
 
 translator:
-  dictionary: zh.pinyin
+  dictionary: zh_pinyin
   preedit_format:
     # 输入码翻译为拼音
     # - xform/([bpmfdtnljqx])n/$1iao/
@@ -198,7 +198,7 @@ translator:
     # - xform/([jqxy])v/$1u/
     # - xform/([nl])v/$1ü/
     # - xform/ // # 去掉上屏字符间空格
-  prism: zh.flypy # 值与id相同, 如果去掉会变全拼
+  prism: zh_flypy # 值与id相同, 如果去掉会变全拼
   contextual_suggestions: true
   max_homophones: 7
 

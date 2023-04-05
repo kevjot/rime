@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 ---
-name: zh.pinyin
+name: zh_pinyin
 version: "0.1"
 sort: by_weight
 vocabulary: octagram/essay-zh-hans
