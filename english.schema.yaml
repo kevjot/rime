@@ -1,0 +1,72 @@
+# english.schema.yaml
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: english
+  name: 英文
+  version: "0.1"
+  description:
+    英文单词输入法
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ ASCII-OFF, ASCII-ON ]
+
+engine:
+  processors:
+    - ascii_composer
+    - key_binder
+    - speller
+    - recognizer
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - matcher
+    - ascii_segmentor
+    - abc_segmentor
+    - fallback_segmentor
+  translators:
+    - table_translator
+    - echo_translator
+  filters:
+    - uniquifier
+
+translator:
+  enable_encoder: false
+  encode_commit_history: false
+  enable_sentence: false
+  enable_user_dict: false
+  dictionary: english
+  spelling_hints: 9
+  comment_format:          # 自定义提示码
+    - xform/.*//           # 清空提示码
+
+  
+
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
+  initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
+  # delimiter: " '"
+  algebra:
+    # 拼写规则的本质，是把字典按照规则改写，而不是把输入的按键码转写。
+    - derive/['\-_+,.]+//
+    # 把大小写混写的单词转写为全小写
+    - derive/^(.+)$/\L$1/
+    # 把小写的单词转写为全大写写
+    - derive/^([a-z].+)$/\U$1/
+    # 把小写的单词转写为首字母大写
+    - derive/^([a-zA-Z])/\U$1/
+    # 把小写的单词转写为前2字母大写
+    - derive/^([a-z][a-z])/\U$1/
+
+key_binder:
+  import_preset: default
+
+punctuator:
+  import_preset: default
+
+recognizer:
+  import_preset: default

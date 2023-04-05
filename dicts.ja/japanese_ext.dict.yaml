@@ -1,0 +1,13 @@
+# Rime dictionary
+# encoding: utf-8
+#
+# A Japanese dictionary
+# Adopted from Mozc IME with dictionary licensed in Public Domain
+# Corrected by Sim Cheon Hyeong for some mistakes
+# origin name: nihongo-r
+
+---
+name: japanese_ext
+version: "1.0"
+sort: by_weight
+...

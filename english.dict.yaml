@@ -1,0 +1,11 @@
+# Rime dictionary
+# encoding: utf-8
+
+---
+name: english
+version: "20230331"
+
+import_tables:
+  - ./dicts.en/english
+  - ./dicts.en/english_ext
+...

@@ -52,7 +52,7 @@ speller:
   delimiter: " '"
 
 menu:
-  page_size: 9
+  page_size: 5
 
 translator:
   dictionary: stroke
