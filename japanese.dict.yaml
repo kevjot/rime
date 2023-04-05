@@ -7,4 +7,7 @@ version: "20230331"
 
 import_tables:
   - ./dicts.ja/nihongo-r
+  - ./dicts.ja/japanese.mozc
+  - ./dicts.ja/japanese.jmdict
+  - ./dicts.ja/japanese.kana
 ...

@@ -1,0 +1,54 @@
+# Rime Hapin Arbic dictionary
+# encoding: utf-8
+
+---
+name: hapin_ar
+version: "1.2"
+sort: by_weight
+use_preset_vocabulary: false
+import_tables:
+  - hapin_ar.extend
+  - hapin.emoji
+...
+
+ا	a
+ب	b
+د	d
+ى	e
+ە	ye
+ف	f
+گ	g
+ع	gh
+ح	h
+ھ	hh
+ي	i
+ج	j
+ك	k
+ل	l
+م	m
+ن	n
+ڭ	ng
+و	o
+پ	p
+ق	q
+ر	r
+س	s
+ت	t
+ۇ	u
+ۆ	v
+ۋ	w
+ز	z
+ش	sh
+چ	ch
+،	,
+؟	?
+؛	;
+.	.
+۔	-
+ء	x
+ٴ	x
+ا	xa
+ۇ	xu
+ۇ	yu
+ى	xe
+و	xo
