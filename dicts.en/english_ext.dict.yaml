@@ -1,7 +1,7 @@
 # english extended dictionary
 
 ---
-name: english_ext
+name: english.ext
 version: "0.1"
 sort: original
 use_preset_vocabulary: false

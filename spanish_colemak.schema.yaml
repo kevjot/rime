@@ -3,7 +3,7 @@
 
 schema:
   schema_id: spanish_colemak
-  name: "西班牙語colemak"
+  name: "西班牙語·Colemak"
   version: "poly2014.04.17自動上屏"
   author:
     - polyhedron<biopolyhedron@gmail.com>

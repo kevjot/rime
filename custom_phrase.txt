@@ -9,9 +9,10 @@
 #
 # 虽然文本码表编辑较为方便，但不适合导入大量条目
 
-中州韵输入法引擎	rime	2
 https://rime.im/	rime	1
+中州韵输入法引擎	rime	2
 Rime	rime	3
+
 ⌘	cmd
 ⌘	command
 ⌃	ctl
@@ -20,6 +21,7 @@ Rime	rime	3
 ⌥	option
 ⇧	shift
 
+# 单字
 劦	lilili
 品	pinpinpin
 垚	tututu
@@ -83,5 +85,10 @@ Rime	rime	3
 䨻	leileilei
 
 
-又双叒叕	yyy
+# 小鹤双拼
+小鹤双拼    xnheulpb
+小鹤双拼    xhup
+小鹤音形    xnheybxk
+小鹤音形    xhyx
+
 又双叒叕	yzyzyz

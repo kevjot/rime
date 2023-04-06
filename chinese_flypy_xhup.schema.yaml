@@ -19,21 +19,21 @@ schema:
     
 
 switches:
-  - name: ascii_mode
+  - name: traditionalization
     reset: 0
-    states: [ 中文, 西文 ]
-  - name: full_shape
+    states: [ 简, 繁 ]
+  - name: emoji_suggestion
     reset: 0
-    states: [ 半角, 全角 ]
+    states: [ "😑️", "😁️" ]
   - name: ascii_punct
     reset: 1
     states: [ 。，, ．， ]
-  - name: traditionalization
+  - name: full_shape
     reset: 0
-    states: [ 汉字, 漢字 ]
-  - name: emoji_suggestion
-    # reset: 1
-    states: [ "😑️No", "😁️Yes" ]
+    states: [ 半, 全 ]
+  - name: ascii_mode
+    reset: 0
+    states: [ 中, 英 ]
 
 engine:
   processors:
@@ -75,13 +75,14 @@ english:
   dictionary: en
   enable_completion: true
   enable_sentence: false
-  initial_quality: -1
+  initial_quality: -1      # 初始权重
   comment_format:          # 自定义提示码
     - xform/.*//           # 清空提示码
 
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA~
-  delimiter: " '"
+  # finals: "'"
+  # delimiter: " '"
   algebra:
     - erase/^xx$/
     - erase/^hm$/
@@ -163,7 +164,7 @@ translator:
   dictionary: pinyin
   prism: chinese_flypy_xhup # 值与id相同, 如果去掉会变全拼
   contextual_suggestions: true
-  max_homophones: 7
+  # max_homophones: 7
   preedit_format:
     # 输入码翻译为拼音
     # - xform/([bpmfdtnljqx])n/$1iao/

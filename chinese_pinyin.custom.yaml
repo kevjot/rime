@@ -5,7 +5,7 @@ patch:
   # 反查配置，若需要反查，则反注释 reverse_lookup 块
   # reverse_lookup:
   #   # 反查詞典設定
-  #   dictionary: liangfen
+  #   dictionary: chinese_liangfen
   #   # 提前顯示尚未輸入完整碼的字〔僅 table_translator 有效〕
   #   enable_completion: true
   #   # 前綴

@@ -6,6 +6,6 @@ name: english
 version: "20230331"
 
 import_tables:
-  - ./dicts.en/english
+  - ./dicts.en/english_base
   - ./dicts.en/english_ext
 ...

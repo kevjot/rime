@@ -15,17 +15,17 @@ punctuator:
   import_preset: default
 
 switches:
+  - name: simplification
+    reset: 0
+    # states: [ 简, 繁 ]
+  - name: ascii_punct
+    reset: 1
+    # states: [ 。，, ．， ]
+  - name: full_shape
+    # states: [ 半, 全 ]
   - name: ascii_mode
     reset: 0
-   # states: [ 中文, 英文 ]
-  - name: full_shape
-   # states: [ 半角, 全角 ]
-  - name: simplification
-   # states: [ 简, 繁 ]
-    reset: 0
-  - name: ascii_punct
-   # states: [ 。，, ．， ]
-    reset: 0
+    # states: [ 中, 英 ]
 
 engine:
   processors:

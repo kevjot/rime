@@ -4,7 +4,7 @@
 
 schema:
   schema_id: japanese
-  name: 日本語
+  name: "日本語"
   version: 'v0.2'
   author:
     - ensigma96 <ensigma96@gmail.com>

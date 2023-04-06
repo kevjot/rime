@@ -3,8 +3,8 @@
 #
 
 schema:
-  schema_id: easy_de
-  name: Easy German
+  schema_id: german
+  name: "德語"
   version: "0.1"
   author:
     - ketch
