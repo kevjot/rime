@@ -61,8 +61,8 @@ speller:
     - erase/^[^x]+([x|y])$/
 
 translator:
-  dictionary: hapin_ar
-  prism: hapin_ar
+  dictionary: arabic
+  prism: arabic
 
 # 标点符号映射
 punctuator:

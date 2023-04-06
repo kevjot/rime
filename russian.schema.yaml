@@ -36,5 +36,5 @@ punctuator:
     '''' : { pair: [ '«', '»' ] }
   full_shape: *symtable
 translator:
-  dictionary: tienyu_rus
+  dictionary: russian
 

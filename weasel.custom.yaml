@@ -2,7 +2,7 @@ customization:
   distribution_code_name: Weasel
   distribution_version: 0.14.3
   generator: "Weasel::UIStyleSettings"
-  modified_time: "Wed Apr  5 23:46:29 2023"
+  modified_time: "Thu Apr  6 14:03:22 2023"
   rime_version: 1.5.3
 patch:
   "preset_color_schemes/win10":
@@ -16,7 +16,8 @@ patch:
     hilited_text_color: 0xFFFFFF
     name: Windows10
     text_color: 0x000000
-  "style/color_scheme": dark_temple
+  "style/color_scheme": win10
+  "style/font_face": "Microsoft YaHei"
   "style/font_point": 13
   "style/horizontal": true
   "style/inline_preedit": true
@@ -26,4 +27,3 @@ patch:
   "style/layout/margin_x": 15
   "style/layout/margin_y": 10
   "style/layout/round_corner": 0
-  "style/font_face": "Microsoft YaHei"

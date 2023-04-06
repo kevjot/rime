@@ -39,8 +39,8 @@ engine:
     - punct_translator
     - table_translator
 
-menu:
-  alternative_select_keys: '@#$%&_{}\|'
+# menu:
+#   alternative_select_keys: '@#$%&_{}\|'
 
 speller:
   alphabet: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`1234567890-=[];'',./~!^*()+:"<>?'
@@ -64,24 +64,26 @@ punctuator:  # 只須定義空格一個符號
   full_shape: *punct
 
 ascii_composer:
-  switch_key:
-    Shift_L: noop
-    Shift_R: noop
+  import_preset: default
+  # switch_key:
+  #   Shift_L: noop
+  #   Shift_R: noop
 
 key_binder:
-  bindings:
-    - {accept: "Control+Shift+1", select: .next, when: always}
-    - {accept: "Control+Shift+n", select: japanese, when: always}
-    - {accept: "Control+Shift+N", select: japanese, when: always}
-    - {accept: "Control+Shift+k", select: korean, when: always}
-    - {accept: "Control+Shift+K", select: korean, when: always}
-    - {accept: "Control+Shift+v", select: vietnamese, when: always}
-    - {accept: "Control+Shift+V", select: vietnamese, when: always}
-    - {accept: "Control+Shift+j", select: double_jyutping_extra, when: always}
-    - {accept: "Control+Shift+J", select: double_jyutping_extra, when: always}
-    - {accept: "Control+Shift+m", select: td_pinyin_flypy_extra, when: always}
-    - {accept: "Control+Shift+M", select: td_pinyin_flypy_extra, when: always}
-    - {accept: "Control+Shift+l", select: international, when: always}
-    - {accept: "Control+Shift+L", select: international, when: always}
-    - {accept: "F16", select: td_pinyin_flypy_extra, when: always}
-    - {accept: "F19", select: .next, when: always}
+  import_preset: default
+  # bindings:
+  #   - {accept: "Control+Shift+1", select: .next, when: always}
+  #   - {accept: "Control+Shift+n", select: japanese, when: always}
+  #   - {accept: "Control+Shift+N", select: japanese, when: always}
+  #   - {accept: "Control+Shift+k", select: korean, when: always}
+  #   - {accept: "Control+Shift+K", select: korean, when: always}
+  #   - {accept: "Control+Shift+v", select: vietnamese, when: always}
+  #   - {accept: "Control+Shift+V", select: vietnamese, when: always}
+  #   - {accept: "Control+Shift+j", select: double_jyutping_extra, when: always}
+  #   - {accept: "Control+Shift+J", select: double_jyutping_extra, when: always}
+  #   - {accept: "Control+Shift+m", select: td_pinyin_flypy_extra, when: always}
+  #   - {accept: "Control+Shift+M", select: td_pinyin_flypy_extra, when: always}
+  #   - {accept: "Control+Shift+l", select: international, when: always}
+  #   - {accept: "Control+Shift+L", select: international, when: always}
+  #   - {accept: "F16", select: td_pinyin_flypy_extra, when: always}
+  #   - {accept: "F19", select: .next, when: always}
