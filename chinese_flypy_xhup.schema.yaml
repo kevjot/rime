@@ -72,7 +72,7 @@ emoji_suggestion:
   tips: all
 
 english:
-  dictionary: en
+  dictionary: english
   enable_completion: true
   enable_sentence: false
   initial_quality: -1      # 初始权重
@@ -82,7 +82,7 @@ english:
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA~
   # finals: "'"
-  # delimiter: " '"
+  delimiter: "'"
   algebra:
     - erase/^xx$/
     - erase/^hm$/
@@ -161,7 +161,7 @@ speller:
     - abbrev/^(.).+$/$1/
 
 translator:
-  dictionary: pinyin
+  dictionary: chinese_pinyin
   prism: chinese_flypy_xhup # 值与id相同, 如果去掉会变全拼
   contextual_suggestions: true
   # max_homophones: 7

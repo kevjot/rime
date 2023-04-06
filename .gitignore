@@ -16,3 +16,4 @@ installation.yaml
 .place_holder
 **/*.userdb
 installation.yaml
+*.old/

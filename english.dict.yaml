@@ -8,4 +8,5 @@ version: "20230331"
 import_tables:
   - ./dicts.en/english_base
   - ./dicts.en/english_ext
+  # - ./dicts.en/english_easy_en
 ...
