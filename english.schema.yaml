@@ -47,20 +47,19 @@ translator:
   
 
 speller:
-  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
-  initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
-  # delimiter: " '"
+  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA-_'
+  initials: -_'zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
   algebra:
     # 拼写规则的本质，是把字典按照规则改写，而不是把输入的按键码转写。
-    - derive/['\-_+,.]+//
+    # - derive/['\-_+,.]+//
     # 把大小写混写的单词转写为全小写
-    - derive/^(.+)$/\L$1/
+    # - derive/^(.+)$/\L$1/
     # 把小写的单词转写为全大写写
-    - derive/^([a-z].+)$/\U$1/
+    # - derive/^([a-z].+)$/\U$1/
     # 把小写的单词转写为首字母大写
     - derive/^([a-zA-Z])/\U$1/
     # 把小写的单词转写为前2字母大写
-    - derive/^([a-z][a-z])/\U$1/
+    # - derive/^([a-z][a-z])/\U$1/
 
 key_binder:
   import_preset: default

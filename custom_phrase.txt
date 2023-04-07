@@ -85,10 +85,9 @@ Rime	rime	3
 䨻	leileilei
 
 
-# 小鹤双拼
-小鹤双拼    xnheulpb
-小鹤双拼    xhup
-小鹤音形    xnheybxk
-小鹤音形    xhyx
+小鹤双拼	xnheulpb
+小鹤双拼	xhup
+小鹤音形	xnheybxk
+小鹤音形	xhyx
 
 又双叒叕	yzyzyz

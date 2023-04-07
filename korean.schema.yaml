@@ -4,7 +4,7 @@
 
 schema:
   schema_id: korean
-  name: 한글 ₀.₉₂
+  name: "韓語"
   version: "0.92"
   author:
     - Patrick <ipatrickmac@me.com>

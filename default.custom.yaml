@@ -2,7 +2,7 @@ customization:
   distribution_code_name: Weasel
   distribution_version: 0.14.3
   generator: "Rime::SwitcherSettings"
-  modified_time: "Thu Apr  6 14:14:04 2023"
+  modified_time: "Fri Apr  7 16:48:15 2023"
   rime_version: 1.5.3
 patch:
   "ascii_composer/good_old_caps_lock": false
@@ -17,26 +17,16 @@ patch:
     - {accept: "Control+k", send: "Shift+Delete", when: composing}
     - {accept: Tab, send: Page_Down, when: composing}
     - {accept: "Shift+Tab", send: Page_Up, when: composing}
-    - {accept: equal, send: Page_Down, when: composing}
-    - {accept: minus, send: Page_Up, when: composing}
+    # - {accept: equal, send: Page_Down, when: composing}
+    # - {accept: minus, send: Page_Up, when: composing}
     - {accept: bracketleft, send: Page_Up, when: composing}
     - {accept: bracketright, send: Page_Down, when: composing}
   "menu/page_size": 4
   schema_list:
     - {schema: chinese_flypy_xhup}
-    - {schema: arabic}
+    - {schema: chinese_flypydz}
+    - {schema: chinese_flypy_xhyx}
     - {schema: english}
-    - {schema: german}
-    - {schema: spanish}
-    - {schema: spanish_colemak}
-    - {schema: spanish_splash}
-    - {schema: chinese_liangfen}
-    - {schema: chinese_pinyin}
-    - {schema: japanese}
-    - {schema: russian}
-    - {schema: korean}
-    - {schema: korean_hanja}
-  "switcher/caption": "[方案菜单]"
   "switcher/hotkeys":
     - F4
   "switcher/save_options":

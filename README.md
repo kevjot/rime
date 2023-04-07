@@ -1,9 +1,9 @@
-## Rime Settings (multilingual version)
+## Rime Settings
 
 ### Features
 
 - 中文
-  - 支持全拼、小鹤双拼、小鹤音形输入方案
+  - 全拼、小鹤双拼、小鹤音形输入方案
   - Emoji、中英混输
   - 两分、笔画反查
 - 英语

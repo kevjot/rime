@@ -4,7 +4,7 @@
 
 schema:
   schema_id: chinese_pinyin
-  name: "漢語全拼"
+  name: "漢語·全拼"
   version: "1.0.0"
   author:
     - fkxxyz
