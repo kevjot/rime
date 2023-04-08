@@ -21,19 +21,19 @@ schema:
 switches:
   - name: traditionalization
     reset: 0
-    states: [ 简, 繁 ]
+    # states: [ 简, 繁 ]
   - name: emoji_suggestion
     reset: 0
-    states: [ "😑️", "😁️" ]
+    # states: [ "😑️", "😁️" ]
   - name: ascii_punct
     reset: 1
-    states: [ 。，, ．， ]
+    # states: [ 。，, ．， ]
   - name: full_shape
     reset: 0
-    states: [ 半, 全 ]
+    # states: [ 半, 全 ]
   - name: ascii_mode
     reset: 0
-    states: [ 中, 英 ]
+    # states: [ 中, 英 ]
 
 engine:
   processors:
@@ -80,9 +80,9 @@ english:
     - xform/.*//           # 清空提示码
 
 speller:
-  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA~
+  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA/
   # finals: "'"
-  delimiter: "'"
+  delimiter: " '"
   algebra:
     - erase/^xx$/
     - erase/^hm$/
@@ -213,22 +213,90 @@ traditionalize:
 punctuator:
   import_preset: symbols
   full_shape:
+    "`": "｀"
+    "~": "～"
+    "!": "！"
     "@": "＠"
+    "#": "＃"
+    "$": "￥"
+    "%": "％"
+    "^": "……"
+    "&": "＆"
+    "*": "×"
+    "(": "（"
+    ")": "）"
+    "_": "——"
+    "+": "＋"
+    "-": "－"
+    "=": "＝"
+    "[": "【"
+    "]": "】"
+    "{": "｛"
+    "}": "｝"
+    "|": "｜"
+    "\\": "、"
+    # "/": "、"
+    ";": "；"
+    "'": "‘"
+    ",": "，"
+    ".": "。"
+    "<": "《"
+    ">": "》"
+    "?": "？"
+    "1" : "壹"
+    "2" : "貳"
+    "3" : "參"
+    "4" : "肆"
+    "5" : "伍"
+    "6" : "陸"
+    "7" : "柒"
+    "8" : "捌"
+    "9" : "玖"
+    "0" : "零"
+    "s" : "拾"
+    "b" : "佰"
+    "q" : "仟"
+    "w" : "萬"
+    "n" : "年"
+    "y" : [ "月", "圓", "億" ]
+    "r" : "日"
+    "x" : "星期"
+    "j" : "角"
+    "f" : "分"
+    "z" : [ "之", "整" ]
+    "d" : "第"
+    "h" : "號"
   half_shape:
-    "/": "/"
-    '\': "、"
-    "`": "`"
-    "~": ～
+    "`": "·"
+    "~": "～"
+    "!": "！"
     "@": "@"
     "#": "#"
-    "-": "-"
+    "$": "￥"
+    "%": "%"
+    "^": "……"
+    "&": "&"
+    "*": "×"
+    "(": "（"
+    ")": "）"
     "_": "——"
     "+": "+"
+    "-": "-"
     "=": "="
-    "[": "「"
-    "]": "」"
-    "{": "『"
-    "}": "』"
+    "[": "【"
+    "]": "】"
+    "{": "｛"
+    "}": "｝"
+    "|": "｜"
+    "\\": "、"
+    # "/": "、"
+    ";": "；"
+    "'": "’"
+    ",": "，"
+    ".": "。"
+    "<": "《"
+    ">": "》"
+    "?": "？"
 
 key_binder:
   import_preset: default
@@ -236,8 +304,8 @@ key_binder:
 recognizer:
   import_preset: default
   patterns:
-    punct: "^~([0-9]0?|[A-Za-z]+)$" # Symbol
-    reverse_lookup: "^U[a-z]*'?$" # 笔画反查
+    punct: "^/([0-9]0?|[A-Za-z]+)$" # Symbol
+    reverse_lookup: "^~[a-z]*'?$" # 笔画反查
     email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
     uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
     html: "^<[a-z]+>$"
@@ -255,7 +323,7 @@ custom_phrase:
 reverse_lookup:
   dictionary: stroke
   enable_completion: true
-  prefix: "U"
+  prefix: "~"
   suffix: "'"
   tips: 〔筆畫〕
   preedit_format:

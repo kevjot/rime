@@ -2,7 +2,7 @@ customization:
   distribution_code_name: Weasel
   distribution_version: 0.14.3
   generator: "Rime::SwitcherSettings"
-  modified_time: "Fri Apr  7 17:11:04 2023"
+  modified_time: "Sat Apr  8 09:54:33 2023"
   rime_version: 1.5.3
 patch:
   "ascii_composer/good_old_caps_lock": false
@@ -14,18 +14,21 @@ patch:
     Shift_L: commit_code
     Shift_R: noop
   "key_binder/bindings":
-    - {accept: "Control+k", send: "Shift+Delete", when: composing}
-    - {accept: Tab, send: Page_Down, when: composing}
-    - {accept: "Shift+Tab", send: Page_Up, when: composing}
-    - {accept: bracketleft, send: Page_Up, when: composing}
-    - {accept: bracketright, send: Page_Down, when: composing}
+    - {accept: "Shift+space", toggle: full_shape, when: always}
+    - {accept: "Shift+Tab", send: "Shift+Left", when: composing}
+    - {accept: Tab, send: "Shift+Right", when: composing}
+    - {accept: equal, send: Page_Down, when: composing}
+    - {accept: minus, send: Page_Up, when: composing}
+    - {accept: bracketleft, send: Page_Up, when: paging}
+    - {accept: bracketright, send: Page_Down, when: has_menu}
+    - {accept: "Control+period", toggle: ascii_punct, when: always}
   "menu/page_size": 4
   schema_list:
-    - {schema: chinese_flypy_xhup}
     - {schema: chinese_flypydz}
-    - {schema: english}
+    - {schema: chinese_flypy}
+    - {schema: chinese_flypy_xhup}
   "switcher/hotkeys":
     - F4
   "switcher/save_options":
-    - full_shape
     - ascii_punct
+    - ascii_mode

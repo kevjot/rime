@@ -48,7 +48,7 @@ engine:
     - table_translator
     - lua_translator@date_translator
     - table_translator@custom_phraseVD
-    - table_translator@custom_phraseXT
+    # - table_translator@custom_phraseXT
     - table_translator@custom_phraseYH
     - table_translator@custom_phraseQMZ
     - reverse_lookup_translator
@@ -97,13 +97,13 @@ custom_phraseVD:
   enable_completion: false
   initial_quality: 0 #用户词和系统词重码 置顶
   
-custom_phraseXT:
-  dictionary: ""
-  user_dict: chinese_flypy_sys
-  db_class: stabledb
-  enable_sentence: false
-  enable_completion: false
-  initial_quality: -1 #本表词和系统词重码居后
+# custom_phraseXT:
+#   dictionary: ""
+#   user_dict: chinese_flypy_sys
+#   db_class: stabledb
+#   enable_sentence: false
+#   enable_completion: false
+#   initial_quality: -1 #本表词和系统词重码居后
 
 custom_phraseYH:
   dictionary: ""
@@ -131,22 +131,17 @@ reverse_lookup:
 
 key_binder:
   import_preset: default #方案切换相关
-  # bindings:
-  #   - {accept: bracketleft, send: Page_Up, when: paging} # [上翻页
-  #   - {accept: bracketright, send: Page_Down, when: has_menu} # ]下翻页
+  bindings:
   #   - {accept: comma, send: comma, when: paging} #注销逗号翻页
   #   - {accept: period, send: period, when: has_menu} #注销句号翻页
-  #   - {accept: semicolon, send: 2, when: has_menu} #分号次选
+    - {accept: semicolon, send: 2, when: has_menu} #分号次选
   # #  - {accept: Release+semicolon, send: semicolon, when: has_menu} #如启用此行，分号引导功能无效
-  #   - {accept: Release+period, send: period, when: composing} #句号顶屏
-  #   - {accept: Release+comma, send: comma, when: composing} #逗号顶屏
+    - {accept: Release+period, send: period, when: composing} #句号顶屏
+    - {accept: Release+comma, send: comma, when: composing} #逗号顶屏
   #   - {accept: "Tab", send: Escape, when: composing}
   #   - {accept: "Shift_R", send: Escape, when: composing}
-  #   - {accept: "Shift+space", toggle: full_shape, when: always} #切换全半角
-  #   - {accept: "Control+period", toggle: ascii_punct, when: always} #切换中英标点
   #   # - {when: has_menu, accept: space, send: space}      #针对候选时，作用空格
   #   # - {when: composing, accept: space, send: Return}    #有输入码时，回车清编码
-  #   - {accept: "Control+j", toggle: simplification, when: always} #切换简繁
 
 
 recognizer:

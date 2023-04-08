@@ -19,15 +19,15 @@ punctuator:
 switches:
   - name: simplification
     reset: 0
-    states: [ 简, 繁 ]
+    # states: [ 简, 繁 ]
   - name: ascii_punct
     reset: 1
-    states: [ 。，, ．， ]
+    # states: [ 。，, ．， ]
   - name: full_shape
-    states: [ 半, 全 ]
+    # states: [ 半, 全 ]
   - name: ascii_mode
     reset: 0
-    # states: [ 中, 英 ]
+    states: [ 中, 英 ]
 
 engine:
   processors:

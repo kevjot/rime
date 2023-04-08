@@ -58,3 +58,9 @@ select_character_processor = require("select_character")
 -- date_translator: 动态日期时间输入
 -- 详见 `lua/date_translator.lua`
 date_translator = require("date_translator")
+
+
+-- calculator_translator: 计算器
+calculator_translator = require("calculator_translator")
+
+

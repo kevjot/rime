@@ -16,11 +16,11 @@ schema:
 switches:
   - name: ascii_mode
     reset: 0
-    states: [ Chi, Eng ]
+    # states: [ Chi, Eng ]
   - name: full_shape
-    states: [ Half, Full ]
+    # states: [ Half, Full ]
   - name: simplification
-    states: [ Trad, Simp ]
+    # states: [ Trad, Simp ]
 
 engine:
   processors:
@@ -64,7 +64,7 @@ translator:
 
 reverse_lookup:
   dictionary: luna_pinyin
-  prefix: "`"
+  prefix: "~"
   tips: 〔PinYin〕
   preedit_format:
     - xform/([nljqxy])v/$1ü/
@@ -73,7 +73,7 @@ punctuator:
   import_preset: default
 
 menu:
-  page_size: 5
+  page_size: 4
 
 key_binder:
   import_preset: default
@@ -81,4 +81,4 @@ key_binder:
 recognizer:
   import_preset: default
   patterns:
-    reverse_lookup: "`[a-z]*$"
+    reverse_lookup: "~[a-z]*$"
