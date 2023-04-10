@@ -6,7 +6,7 @@ name: english
 version: "20230331"
 
 import_tables:
-  # - ./dicts.en/english_479k
+  - ./dicts.en/english_479k
   - ./dicts.en/english_ext
-  - ./dicts.en/english_easy
+  # - ./dicts.en/english_easy
 ...

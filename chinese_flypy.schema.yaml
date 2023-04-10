@@ -154,8 +154,4 @@ recognizer:
     expression: "^=.*$"
 
 menu:
-  page_size: 4 #候选项数
-  
-# style:
-#   horizontal: true #竖排为false
-  
+  page_size: 2 #候选项数

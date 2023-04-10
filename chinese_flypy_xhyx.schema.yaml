@@ -1,42 +1,46 @@
-# Rime schema settings
+# Rime schema
 # encoding: utf-8
 
 schema:
   schema_id: chinese_flypy_xhyx
-  name: "小鶴音形·定製"
-  version: "10.9.4"
+  name: "小鹤音形定制"
+  version: "0.1"
   author:
-    - 方案设计：何海峰 <flypy@qq.com>
-    - Kevin
+    - double pinyin layout by 鶴
+    - Modified by Kevin <kevobras@gmail.com>
   description: |
-    小鹤音形输入法
-    合并增加扩展词库
+    
   dependencies:
-
-punctuator:
-  import_preset: default
+    - english
+    - stroke
+    
 
 switches:
-  - name: simplification
+  - name: traditionalization
     reset: 0
     # states: [ 简, 繁 ]
+  - name: emoji_suggestion
+    reset: 0
+    # states: [ "😑️", "😁️" ]
   - name: ascii_punct
     reset: 1
     # states: [ 。，, ．， ]
   - name: full_shape
+    reset: 0
     # states: [ 半, 全 ]
   - name: ascii_mode
     reset: 0
-    states: [ 中, 英 ]
+    # states: [ 中, 英 ]
 
 engine:
   processors:
-    - ascii_composer
+    - ascii_composer # Windows 用户请解除此行注释，否则将会无法切换到英文输入
     - recognizer
+    - lua_processor@select_character_processor # lua 选词扩展，如需关闭请注释
     - key_binder
     - speller
-    - punctuator
     - selector
+    - punctuator
     - navigator
     - express_editor
   segmentors:
@@ -47,119 +51,152 @@ engine:
     - fallback_segmentor
   translators:
     - punct_translator
-    - table_translator
-    - lua_translator@date_translator
-    # - table_translator@custom_phraseVD
-    # - table_translator@custom_phraseXT
-    # - table_translator@custom_phraseYH
-    # - table_translator@custom_phraseQMZ
-    - reverse_lookup_translator
-    # - history_translator@history
-    - lua_translator@calculator_translator
-    
+    - lua_translator@date_translator # 动态日期时间输入
+    - table_translator@custom_phrase # 用户自定义词典
+    - table_translator@english # 英文输入
+    # - reverse_lookup_translator
+    - script_translator
   filters:
-    - simplifier
-    - simplifier@simplification
-    - uniquifier
+    - simplifier@emoji_suggestion
+    - simplifier@traditionalize  # 简入繁出
+    # - lua_filter@long_phrase_first # 最长词组和单字在先
+    # - lua_filter@single_char_first # 单字优先
+    # - lua_filter@single_char_only # 只显示单字
+
+emoji_suggestion:
+  opencc_config: emoji.json
+  option_name: emoji_suggestion
+  tips: all
+
+english:
+  dictionary: english
+  enable_completion: true
+  enable_sentence: false
+  initial_quality: -1      # 初始权重, 英文词库与双拼重码时英文置后显示
+  comment_format:          # 自定义提示码
+    - xform/.*//           # 清空提示码
 
 speller:
-  alphabet: "abcdefghijklmnopqrstuvwxyz;'"
-  initials: ';abcdefghijklmnopqrstuvwxyz'
-  finals: "'"
-  #delimiter: " '"
-  max_code_length: 4
-  auto_select: true   #全码唯一自动上屏，无则后码顶上屏
-  auto_select_pattern: ^;.$|^\w{4}$
-  auto_clear: max_length #manual|auto|max_length 空码按下一键确认清屏|空码自动清|达到最长码时后码顶上清屏
+  alphabet: "zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA/`"
+  # finals: "'"
+  delimiter: " '"
+  algebra:
 
 translator:
   dictionary: chinese_flypy_xhyx
-  enable_charset_filter: false
-  enable_sentence: false
-  enable_completion: false # 编码提示开关
-  enable_user_dict: false
-  disable_user_dict_for_patterns:
-    - "^z.*$"
- 
-# history:
-#    input: ;f
-#    size: 1 #重复前几次上屏
-#    initial_quality: 1 #首选
-   
-simplification:
-  opencc_config: s2tw.json
-  option_name: simplification
-  tips: all #简繁对照
+  prism: chinese_flypy_xhyx # 值与id相同, 如果去掉会变全拼
+  contextual_suggestions: true
 
-# custom_phraseVD:
-#   dictionary: ""
-#   user_dict: chinese_flypy_top
-#   db_class: stabledb
-#   enable_sentence: false
-#   enable_completion: false
-#   initial_quality: 0 #用户词和系统词重码 置顶
-  
-# custom_phraseXT:
-#   dictionary: ""
-#   user_dict: chinese_flypy_sys
-#   db_class: stabledb
-#   enable_sentence: false
-#   enable_completion: false
-#   initial_quality: -1 #本表词和系统词重码居后
+traditionalize:
+  option_name: traditionalization
+  opencc_config: s2t.json             # s2t.json | s2hk.json | s2tw.json | s2twp.json  # 如果选择台湾繁体，长句子正常，但1~2个字时无法正确转换台湾繁体，仍然显示香港繁体，不知道为啥。
+  tips: all                           # 转换提示: all 都显示 | char 仅单字显示 | none 不显示。
 
-# custom_phraseYH:
-#   dictionary: ""
-#   user_dict: chinese_flypy_user
-#   db_class: stabledb
-#   enable_sentence: false
-#   enable_completion: false
-#   initial_quality: -1 #用户词和系统词重码居后
-  
-# custom_phraseQMZ:
-#   dictionary: ""
-#   user_dict: chinese_flypy_full
-#   db_class: stabledb
-#   enable_sentence: false
-#   enable_completion: false
-#   initial_quality: -1 #和系统词重码时居后
-
-reverse_lookup:
-  dictionary: chinese_flypydz
-  comment_format:
-   # - xform/^/〔/
-   # - xform/$/〕/
-    - xform/ / /
-
+punctuator:
+  import_preset: symbols
+  full_shape:
+    "`": "｀"
+    "~": "～"
+    "!": "！"
+    "@": "＠"
+    "#": "＃"
+    "$": "￥"
+    "%": "％"
+    "^": "……"
+    "&": "＆"
+    "*": "×"
+    "(": "（"
+    ")": "）"
+    "_": "——"
+    "+": "＋"
+    "-": "－"
+    "=": "＝"
+    "[": "【"
+    "]": "】"
+    "{": "｛"
+    "}": "｝"
+    "|": "｜"
+    "\\": "、"
+    # "/": "、"
+    ";": "；"
+    "'": "‘"
+    ",": "，"
+    ".": "。"
+    "<": "《"
+    ">": "》"
+    "?": "？"
+    "1" : "壹"
+    "2" : "貳"
+    "3" : "參"
+    "4" : "肆"
+    "5" : "伍"
+    "6" : "陸"
+    "7" : "柒"
+    "8" : "捌"
+    "9" : "玖"
+    "0" : "零"
+    "s" : "拾"
+    "b" : "佰"
+    "q" : "仟"
+    "w" : "萬"
+    "n" : "年"
+    "y" : [ "月", "圓", "億" ]
+    "r" : "日"
+    "x" : "星期"
+    "j" : "角"
+    "f" : "分"
+    "z" : [ "之", "整" ]
+    "d" : "第"
+    "h" : "號"
+  half_shape:
+    "`": "·"
+    "~": "～"
+    "!": "！"
+    "@": "@"
+    "#": "#"
+    "$": "￥"
+    "%": "%"
+    "^": "……"
+    "&": "&"
+    "*": "×"
+    "(": "（"
+    ")": "）"
+    "_": "——"
+    "+": "+"
+    "-": "-"
+    "=": "="
+    "[": "【"
+    "]": "】"
+    "{": "｛"
+    "}": "｝"
+    "|": "｜"
+    "\\": "、"
+    # "/": "、"
+    ";": "；"
+    "'": "’"
+    ",": "，"
+    ".": "。"
+    "<": "《"
+    ">": "》"
+    "?": "？"
 
 key_binder:
-  import_preset: default #方案切换相关
-  # bindings:
-  #   - {accept: bracketleft, send: Page_Up, when: paging} # [上翻页
-  #   - {accept: bracketright, send: Page_Down, when: has_menu} # ]下翻页
-  #   - {accept: comma, send: comma, when: paging} #注销逗号翻页
-  #   - {accept: period, send: period, when: has_menu} #注销句号翻页
-  #   - {accept: semicolon, send: 2, when: has_menu} #分号次选
-  # #  - {accept: Release+semicolon, send: semicolon, when: has_menu} #如启用此行，分号引导功能无效
-  #   - {accept: Release+period, send: period, when: composing} #句号顶屏
-  #   - {accept: Release+comma, send: comma, when: composing} #逗号顶屏
-  #   - {accept: "Tab", send: Escape, when: composing}
-  #   - {accept: "Shift_R", send: Escape, when: composing}
-  #   - {accept: "Shift+space", toggle: full_shape, when: always} #切换全半角
-  #   - {accept: "Control+period", toggle: ascii_punct, when: always} #切换中英标点
-  #   # - {when: has_menu, accept: space, send: space}      #针对候选时，作用空格
-  #   # - {when: composing, accept: space, send: Return}    #有输入码时，回车清编码
-  #   - {accept: "Control+j", toggle: simplification, when: always} #切换简繁
-
+  import_preset: default
 
 recognizer:
   import_preset: default
   patterns:
-    #uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
-    uppercase: "" #中文状态大写锁定直接上屏
-    reverse_lookup: "[a-z`]*`+[a-z`]*"
-    punct: ""
-    expression: "^=.*$"
+    punct: "^/([0-9]0?|[A-Za-z]+)$" # Symbol
+    email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
+    uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
+    html: "^<[a-z]+>$"
+    camel: "[a-z]+[A-Z].*$"
+    url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]{1,11}[.:_].*$"
 
-menu:
-  page_size: 4 #候选项数
-  
+custom_phrase:
+  dictionary: ""
+  user_dict: custom_phrase
+  db_class: stabledb
+  enable_completion: false
+  enable_sentence: true
+  initial_quality: 1

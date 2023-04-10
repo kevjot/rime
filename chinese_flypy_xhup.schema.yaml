@@ -7,7 +7,7 @@ schema:
   version: "0.1"
   author:
     - double pinyin layout by 鶴
-    - Modified by Kevin
+    - Modified by Kevin <kevobras@gmail.com>
   description: |
     小鹤双拼方案
     中英混输支持
