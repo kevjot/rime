@@ -2,7 +2,7 @@ customization:
   distribution_code_name: Weasel
   distribution_version: 0.14.3
   generator: "Rime::SwitcherSettings"
-  modified_time: "Mon Apr 10 09:50:39 2023"
+  modified_time: "Thu Apr 13 12:26:55 2023"
   rime_version: 1.5.3
 patch:
   "ascii_composer/good_old_caps_lock": false
@@ -29,7 +29,6 @@ patch:
   "menu/page_size": 4
   schema_list:
     - {schema: chinese_flypydz}
-    - {schema: chinese_flypy}
     - {schema: chinese_flypy_xhup}
     - {schema: english}
     - {schema: chinese_flypy_xhyx}
