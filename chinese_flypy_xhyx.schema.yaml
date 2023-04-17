@@ -27,7 +27,7 @@ switches:
       reset: 0
       # states: [ 半, 全 ]
     - name: ascii_mode
-      reset: 0
+      reset: 1
       # states: [ 中, 英 ]
 
 engine:
@@ -78,7 +78,7 @@ english:
         - xform/.*// # 清空提示码
 
 speller:
-    alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA/`
+    alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA/
     finals: "'"
     # delimiter: " '"
     # algebra:
@@ -101,36 +101,6 @@ traditionalize:
 punctuator:
     import_preset: symbols
     full_shape:
-        '`': '｀'
-        '~': '～'
-        '!': '！'
-        '@': '＠'
-        '#': '＃'
-        '$': '￥'
-        '%': '％'
-        '^': '……'
-        '&': '＆'
-        '*': '×'
-        '(': '（'
-        ')': '）'
-        '_': '——'
-        '+': '＋'
-        '-': '－'
-        '=': '＝'
-        '[': '【'
-        ']': '】'
-        '{': '｛'
-        '}': '｝'
-        '|': '｜'
-        "\\": '、'
-        # "/": "、"
-        ';': '；'
-        "'": '‘'
-        ',': '，'
-        '.': '。'
-        '<': '《'
-        '>': '》'
-        '?': '？'
         '1': '壹'
         '2': '貳'
         '3': '參'
@@ -154,37 +124,6 @@ punctuator:
         'z': ['之', '整']
         'd': '第'
         'h': '號'
-    half_shape:
-        '`': '·'
-        '~': '～'
-        '!': '！'
-        '@': '@'
-        '#': '#'
-        '$': '￥'
-        '%': '%'
-        '^': '……'
-        '&': '&'
-        '*': '×'
-        '(': '（'
-        ')': '）'
-        '_': '——'
-        '+': '+'
-        '-': '-'
-        '=': '='
-        '[': '['
-        ']': ']'
-        '{': '{'
-        '}': '}'
-        '|': '|'
-        "\\": '、'
-        # "/": "、"
-        ';': '；'
-        "'": '’'
-        ',': '，'
-        '.': '。'
-        '<': '《'
-        '>': '》'
-        '?': '？'
 
 key_binder:
     import_preset: default
