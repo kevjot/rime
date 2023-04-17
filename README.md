@@ -15,9 +15,9 @@ A customizable [RIME](https://rime.im/) configuration scheme, multi-language sup
 
 ## Usage
 
-1. Download and Install [RIME](https://rime.im/)
-2. Click on icon of Rime in the taskbar，select `UserFolder` ，paste the project file and overwrite.
-3. Click on icon of Rime in the taskbar，select `Rebuild`
+1. Download and install [RIME](https://rime.im/)
+2. Click on rime icon in the taskbar，select `UserFolder` ，paste the project files and overwrite.
+3. Click on rime icon in the taskbar，select `Rebuild`
 
 ## Thanks
 
