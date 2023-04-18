@@ -7,11 +7,17 @@ A customizable [RIME](https://rime.im/) configuration scheme, multi-language sup
 - Chinese
 - English
 - Japanese
-- Spanish
 - Korean
+- Spanish
+- French
+- Finnish
+- Italian
 - German
 - Russian
 - Arabic
+- Thai
+- Sanskrit
+- Hebrew
 
 ## Usage
 
