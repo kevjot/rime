@@ -34,7 +34,6 @@ engine:
     processors:
         - ascii_composer # Windows 用户请解除此行注释，否则将会无法切换到英文输入
         - recognizer
-        # - lua_processor@select_character_processor # lua 选词扩展，如需关闭请注释
         - key_binder
         - speller
         - selector
@@ -48,11 +47,14 @@ engine:
         - punct_segmentor
         - fallback_segmentor
     translators:
-        - table_translator
         - punct_translator
-        # - lua_translator@date_translator # 动态日期时间输入
+        - table_translator
         - table_translator@custom_phrase # 用户自定义词典
-        # - table_translator@english # 英文输入
+        - table_translator@english # 英文输入
+        - table_translator@custom_phraseVD
+        - table_translator@custom_phraseXT
+        - table_translator@custom_phraseYH
+        - table_translator@custom_phraseQMZ
         # - reverse_lookup_translator
         - script_translator
         # - echo_translator
@@ -60,9 +62,6 @@ engine:
         - uniquifier
         - simplifier@emoji_suggestion
         - simplifier@traditionalize # 简入繁出
-        # - lua_filter@long_phrase_first # 最长词组和单字在先
-        # - lua_filter@single_char_first # 单字优先
-        # - lua_filter@single_char_only # 只显示单字
 
 emoji_suggestion:
     opencc_config: emoji.json
@@ -84,23 +83,94 @@ speller:
     # algebra:
 
 translator:
-    dictionary: chinese_flypy_xhyx
+    dictionary: chinese_flypy
     prism: chinese_flypy_xhyx # 值与id相同, 如果去掉会变全拼
     enable_encoder: false
     encode_commit_history: false
     enable_sentence: false
     enable_user_dict: false
+    enable_completion: true # 编码提示开关
     contextual_suggestions: true
-    spelling_hints: 9
+    spelling_hints: 4
 
 traditionalize:
     option_name: traditionalization
     opencc_config: s2t.json # s2t.json | s2hk.json | s2tw.json | s2twp.json  # 如果选择台湾繁体，长句子正常，但1~2个字时无法正确转换台湾繁体，仍然显示香港繁体，不知道为啥。
     tips: all # 转换提示: all 都显示 | char 仅单字显示 | none 不显示。
 
+
+custom_phraseVD:
+    dictionary: ''
+    user_dict: chinese_flypy_top
+    db_class: stabledb
+    enable_sentence: false
+    enable_completion: false
+    initial_quality: 0 #用户词和系统词重码 置顶
+
+custom_phraseXT:
+    dictionary: ''
+    user_dict: chinese_flypy_sys
+    db_class: stabledb
+    enable_sentence: false
+    enable_completion: false
+    initial_quality: -1 #本表词和系统词重码居后
+
+custom_phraseYH:
+    dictionary: ''
+    user_dict: chinese_flypy_user
+    db_class: stabledb
+    enable_sentence: false
+    enable_completion: false
+    initial_quality: -1 #用户词和系统词重码居后
+
+custom_phraseQMZ:
+    dictionary: ''
+    user_dict: chinese_flypy_full
+    db_class: stabledb
+    enable_sentence: false
+    enable_completion: false
+    initial_quality: -1 #和系统词重码时居后
+
+# reverse_lookup:
+#     dictionary: chinese_flypydz
+#     comment_format:
+#         # - xform/^/〔/
+#         # - xform/$/〕/
+#         - xform/ / /
+
 punctuator:
     import_preset: symbols
     full_shape:
+        '`': '｀'
+        '~': '～'
+        '!': '！'
+        '@': '＠'
+        '#': '＃'
+        '$': '￥'
+        '%': '％'
+        '^': '……'
+        '&': '＆'
+        '*': '×'
+        '(': '（'
+        ')': '）'
+        '_': '——'
+        '+': '＋'
+        '-': '－'
+        '=': '＝'
+        '[': '【'
+        ']': '】'
+        '{': '｛'
+        '}': '｝'
+        '|': '｜'
+        "\\": '、'
+        '/': '、'
+        ';': '；'
+        "'": '‘'
+        ',': '，'
+        '.': '。'
+        '<': '《'
+        '>': '》'
+        '?': '？'
         '1': '壹'
         '2': '貳'
         '3': '參'
@@ -124,6 +194,37 @@ punctuator:
         'z': ['之', '整']
         'd': '第'
         'h': '號'
+    half_shape:
+        '`': '·'
+        '~': '～'
+        '!': '！'
+        '@': '@'
+        '#': '#'
+        '$': '￥'
+        '%': '%'
+        '^': '……'
+        '&': '&'
+        '*': '×'
+        '(': '（'
+        ')': '）'
+        '_': '——'
+        '+': '+'
+        '-': '-'
+        '=': '='
+        '[': '【'
+        ']': '】'
+        '{': '｛'
+        '}': '｝'
+        '|': '｜'
+        "\\": '、'
+        '/': '、'
+        ';': '；'
+        "'": '’'
+        ',': '，'
+        '.': '。'
+        '<': '《'
+        '>': '》'
+        '?': '？'
 
 key_binder:
     import_preset: default
@@ -134,6 +235,7 @@ recognizer:
     import_preset: default
     patterns:
         punct: '^/([0-9]0?|[A-Za-z]+)$' # Symbol
+        reverse_lookup: '[a-z`]*`+[a-z`]*'
         email: '^[A-Za-z][-_.0-9A-Za-z]*@.*$'
         uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
         html: '^<[a-z]+>$'

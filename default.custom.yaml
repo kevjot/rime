@@ -2,7 +2,7 @@ customization:
   distribution_code_name: Weasel
   distribution_version: 0.14.3
   generator: "Rime::SwitcherSettings"
-  modified_time: "Tue Apr 18 10:55:18 2023"
+  modified_time: "Wed Apr 19 13:35:40 2023"
   rime_version: 1.5.3
 patch:
   "app_options/Code.exe":
@@ -25,6 +25,8 @@ patch:
     Shift_L: commit_code
     Shift_R: noop
   "key_binder/bindings":
+    - {accept: "Release+period", send: period, when: composing}
+    - {accept: "Release+comma", send: comma, when: composing}
     - {accept: "Shift+space", toggle: full_shape, when: always}
     - {accept: "Shift+Tab", send: "Shift+Left", when: composing}
     - {accept: Tab, send: "Shift+Right", when: composing}
@@ -33,15 +35,15 @@ patch:
     - {accept: bracketleft, send: Page_Up, when: paging}
     - {accept: bracketright, send: Page_Down, when: has_menu}
     - {accept: "Control+period", toggle: ascii_punct, when: always}
-    - {accept: "Release+period", send: period, when: composing}
-    - {accept: "Release+comma", send: comma, when: composing}
     - {accept: "Control+j", toggle: simplification, when: composing}
     - {accept: "Control+j", toggle: traditionalization, when: composing}
   "menu/page_size": 4
   schema_list:
     - {schema: english}
     - {schema: chinese_flypy_xhyx}
+    - {schema: chinese_pinyin}
   "switcher/hotkeys":
     - F4
   "switcher/save_options":
     - ascii_punct
+    - ascii_mode

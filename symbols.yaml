@@ -323,3 +323,5 @@ punctuator:
     "/sm": [ "《", "》", "〈", "〉", "«", "»", "<", ">"]
     "/tab": "	"
     "/kg": [ "　","　　" ]
+# 环境变量
+    "/win" : ["%UserProfile%", "%AppData%", "%LocalAppData%", "%ProgramFiles%", "%ProgramFiles(x86)%", "%windir%"]
