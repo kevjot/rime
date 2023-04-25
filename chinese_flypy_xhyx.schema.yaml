@@ -50,11 +50,12 @@ engine:
         - punct_translator
         - table_translator
         - table_translator@custom_phrase # 用户自定义词典
-        - table_translator@english # 英文输入
         - table_translator@custom_phraseVD
         - table_translator@custom_phraseXT
         - table_translator@custom_phraseYH
-        - table_translator@custom_phraseQMZ
+        - table_translator@custom_phraseMR
+        # - table_translator@custom_phraseQMZ
+        - table_translator@english # 英文输入
         # - reverse_lookup_translator
         - script_translator
         # - echo_translator
@@ -83,7 +84,7 @@ speller:
     # algebra:
 
 translator:
-    dictionary: chinese_flypy
+    dictionary: chinese_flypydz
     prism: chinese_flypy_xhyx # 值与id相同, 如果去掉会变全拼
     enable_encoder: false
     encode_commit_history: false
@@ -107,6 +108,14 @@ custom_phraseVD:
     enable_completion: false
     initial_quality: 0 #用户词和系统词重码 置顶
 
+custom_phraseMR:
+    dictionary: ''
+    user_dict: chinese_flypy
+    db_class: stabledb
+    enable_sentence: false
+    enable_completion: false
+    initial_quality: -1 #和系统词重码时居后
+
 custom_phraseXT:
     dictionary: ''
     user_dict: chinese_flypy_sys
@@ -123,13 +132,13 @@ custom_phraseYH:
     enable_completion: false
     initial_quality: -1 #用户词和系统词重码居后
 
-custom_phraseQMZ:
-    dictionary: ''
-    user_dict: chinese_flypy_full
-    db_class: stabledb
-    enable_sentence: false
-    enable_completion: false
-    initial_quality: -1 #和系统词重码时居后
+# custom_phraseQMZ:
+#     dictionary: ''
+#     user_dict: chinese_flypy_full
+#     db_class: stabledb
+#     enable_sentence: false
+#     enable_completion: false
+#     initial_quality: -1 #和系统词重码时居后
 
 # reverse_lookup:
 #     dictionary: chinese_flypydz
@@ -235,7 +244,7 @@ recognizer:
     import_preset: default
     patterns:
         punct: '^/([0-9]0?|[A-Za-z]+)$' # Symbol
-        reverse_lookup: '[a-z`]*`+[a-z`]*'
+        # reverse_lookup: '[a-z`]*`+[a-z`]*'
         email: '^[A-Za-z][-_.0-9A-Za-z]*@.*$'
         uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
         html: '^<[a-z]+>$'

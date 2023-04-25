@@ -11,14 +11,6 @@
 
 Rime	rime
 
-⌘	cmd
-⌘	command
-⌃	ctl
-⌃	control
-⌥	opt
-⌥	option
-⇧	shift
-
 # 单字
 劦	lilili
 品	pinpinpin
