@@ -17,6 +17,8 @@ patch:
     ascii_mode: true
   "app_options/sublime_text.exe":
     ascii_mode: true
+  "app_options/espansod.exe":
+    ascii_mode: true
   "ascii_composer/good_old_caps_lock": false
   "ascii_composer/switch_key":
     Control_L: noop

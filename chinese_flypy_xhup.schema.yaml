@@ -239,6 +239,8 @@ punctuator:
 
 key_binder:
   import_preset: default
+  bindings:
+    - { accept: semicolon, send: 2, when: has_menu } #分号次选
 
 recognizer:
   import_preset: default
