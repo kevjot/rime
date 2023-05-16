@@ -3,7 +3,7 @@
 
 schema:
     schema_id: chinese_flypy_xhyx
-    name: '小鹤音形·定制'
+    name: '小鶴音形·定製'
     version: '0.1'
     author:
         - double pinyin layout by 鶴
@@ -105,7 +105,7 @@ traditionalize:
 
 custom_phraseVD:
     dictionary: ''
-    user_dict: chinese_flypy_top
+    user_dict: ./dicts.zh/chinese_flypy_top
     db_class: stabledb
     enable_sentence: false
     enable_completion: false
@@ -121,7 +121,7 @@ custom_phraseMR:
 
 custom_phraseXT:
     dictionary: ''
-    user_dict: chinese_flypy_sys
+    user_dict: ./dicts.zh/chinese_flypy_sys
     db_class: stabledb
     enable_sentence: false
     enable_completion: false
@@ -129,7 +129,7 @@ custom_phraseXT:
 
 custom_phraseYH:
     dictionary: ''
-    user_dict: chinese_flypy_user
+    user_dict: ./dicts.zh/chinese_flypy_user
     db_class: stabledb
     enable_sentence: false
     enable_completion: false
@@ -137,7 +137,7 @@ custom_phraseYH:
 
 # custom_phraseQMZ:
 #     dictionary: ''
-#     user_dict: chinese_flypy_full
+#     user_dict: ./dicts.zh/chinese_flypy_full
 #     db_class: stabledb
 #     enable_sentence: false
 #     enable_completion: false
