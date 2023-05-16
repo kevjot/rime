@@ -27,7 +27,7 @@ switches:
       reset: 0
       # states: [ 半, 全 ]
     - name: ascii_mode
-      reset: 1
+      reset: 0
       # states: [ 中, 英 ]
 
 engine:
