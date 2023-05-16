@@ -113,10 +113,10 @@ speller:
     - derive/([^iu])([a])ng$/$1$2n/ # an -> ang
     - derive/([e])n$/$1ng/ # eng -> en
     - derive/([e])ng$/$1n/ # en -> eng
-    # - derive/([i])n$/$1ng/ # ing -> in
-    # - derive/([i])ng$/$1n/ # in -> ing
-    # - derive/([i])an$/$1ang/ # iang -> ian
-    # - derive/([i])ang$/$1an/ # ian -> iang
+    - derive/([i])n$/$1ng/ # ing -> in
+    - derive/([i])ng$/$1n/ # in -> ing
+    - derive/([i])an$/$1ang/ # iang -> ian
+    - derive/([i])ang$/$1an/ # ian -> iang
     # 由于小鹤双拼特性，无需 uang <-> iang
 
     # 其它模糊音
@@ -246,12 +246,12 @@ recognizer:
   import_preset: default
   patterns:
     punct: "^/([0-9]0?|[A-Za-z]+)$" # Symbol
-    reverse_lookup: "^~[a-z]*'?$" # 笔画反查
-    email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
-    uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
-    html: "^<[a-z]+>$"
-    camel: "[a-z]+[A-Z].*$"
-    url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]{1,11}[.:_].*$"
+    # reverse_lookup: "^~[a-z]*'?$" # 笔画反查
+    # email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
+    # uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
+    # html: "^<[a-z]+>$"
+    # camel: "[a-z]+[A-Z].*$"
+    # url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]{1,11}[.:_].*$"
 
 custom_phrase:
   dictionary: ""
