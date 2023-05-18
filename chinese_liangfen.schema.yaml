@@ -4,7 +4,7 @@
 
 schema:
   schema_id: chinese_liangfen
-  name: "漢語·兩分"
+  name: "漢語·兩分查詞"
   version: "5.0"
   author:
     - TianHeng <2417647441@qq.com>

@@ -3,7 +3,7 @@
 
 schema:
     schema_id: chinese_flypy
-    name: "小鶴音形"
+    name: "漢語·小鶴音形"
     version: "10.9.4"
     author:
         - 方案设计：何海峰 <flypy@qq.com>
@@ -19,6 +19,9 @@ switches:
     - name: ascii_punct
       reset: 1
       # states: [ 。，, ．， ]
+    - name: emoji_suggestion
+      reset: 0
+      # states: [ "😑️", "😁️" ]
     - name: full_shape
       # states: [ 半, 全 ]
     - name: ascii_mode

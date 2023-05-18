@@ -2,272 +2,247 @@
 # encoding: utf-8
 
 schema:
-  schema_id: chinese_flypy_xhup
-  name: "小鶴雙拼"
-  version: "0.1"
-  author:
-    - double pinyin layout by 鶴
-    - Modified by Kevin <kevobras@gmail.com>
-  description: |
-    小鹤双拼方案
-    中英混输支持
-    自定义词库
-    笔画反查
-  dependencies:
-    - english
-    - stroke
-    
+    schema_id: chinese_flypy_xhup
+    name: "漢語·小鶴雙拼"
+    version: "0.1"
+    author:
+        - double pinyin layout by 鶴
+        - Modified by Kevin <kevobras@gmail.com>
+    description: |
+        小鹤双拼方案
+        中英混输支持
+        自定义词库
+        笔画反查
+    dependencies:
+        - english
+        - stroke
 
 switches:
-  - name: traditionalization
-    reset: 0
-    # states: [ 简, 繁 ]
-  - name: emoji_suggestion
-    reset: 0
-    # states: [ "😑️", "😁️" ]
-  - name: ascii_punct
-    reset: 1
-    # states: [ 。，, ．， ]
-  - name: full_shape
-    reset: 0
-    # states: [ 半, 全 ]
-  - name: ascii_mode
-    reset: 0
-    # states: [ 中, 英 ]
+    - name: traditionalization
+      reset: 0
+      # states: [ 简, 繁 ]
+    - name: emoji_suggestion
+      reset: 0
+      # states: [ "😑️", "😁️" ]
+    - name: ascii_punct
+      reset: 1
+      # states: [ 。，, ．， ]
+    - name: full_shape
+      reset: 0
+      # states: [ 半, 全 ]
+    - name: ascii_mode
+      reset: 0
+      # states: [ 中, 英 ]
 
 engine:
-  processors:
-    - ascii_composer # Windows 用户请解除此行注释，否则将会无法切换到英文输入
-    - recognizer
-    - lua_processor@select_character_processor # lua 选词扩展，如需关闭请注释
-    - key_binder
-    - speller
-    - selector
-    - punctuator
-    - navigator
-    - express_editor
-  segmentors:
-    - ascii_segmentor
-    - matcher
-    - abc_segmentor
-    - punct_segmentor
-    - fallback_segmentor
-  translators:
-    - punct_translator
-    - lua_translator@date_translator # 动态日期时间输入
-    - table_translator@custom_phrase # 用户自定义词典
-    - table_translator@english # 英文输入
-    - reverse_lookup_translator
-    - script_translator
-  filters:
-    - simplifier@emoji_suggestion
-    - simplifier@traditionalize  # 简入繁出
-    # - lua_filter@long_phrase_first # 最长词组和单字在先
-    # - lua_filter@single_char_first # 单字优先
-    # - lua_filter@single_char_only # 只显示单字
+    processors:
+        - ascii_composer # Windows 用户请解除此行注释，否则将会无法切换到英文输入
+        - recognizer
+        - lua_processor@select_character_processor # lua 选词扩展，如需关闭请注释
+        - key_binder
+        - speller
+        - selector
+        - punctuator
+        - navigator
+        - express_editor
+    segmentors:
+        - ascii_segmentor
+        - matcher
+        - abc_segmentor
+        - punct_segmentor
+        - fallback_segmentor
+    translators:
+        - punct_translator
+        - lua_translator@date_translator # 动态日期时间输入
+        - table_translator@custom_phrase # 用户自定义词典
+        - table_translator@english # 英文输入
+        - reverse_lookup_translator
+        - script_translator
+    filters:
+        - simplifier@emoji_suggestion
+        - simplifier@traditionalize # 简入繁出
+        # - lua_filter@long_phrase_first # 最长词组和单字在先
+        # - lua_filter@single_char_first # 单字优先
+        # - lua_filter@single_char_only # 只显示单字
 
 emoji_suggestion:
-  opencc_config: emoji.json
-  option_name: emoji_suggestion
-  tips: all
+    opencc_config: emoji.json
+    option_name: emoji_suggestion
+    tips: all
 
 english:
-  dictionary: english
-  enable_completion: true
-  enable_sentence: false
-  initial_quality: -1      # 初始权重, 英文词库与双拼重码时英文置后显示
-  comment_format:          # 自定义提示码
-    - xform/.*//           # 清空提示码
+    dictionary: english
+    enable_completion: true
+    enable_sentence: false
+    initial_quality: -1 # 初始权重, 英文词库与双拼重码时英文置后显示
+    comment_format: # 自定义提示码
+        - xform/.*// # 清空提示码
 
 speller:
-  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA/
-  # finals: "'"
-  delimiter: " '"
-  algebra:
-    - erase/^xx$/
-    - erase/^hm$/
-    - erase/^m$/
-    - erase/^n$/
-    - erase/^ng$/
+    alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA/
+    # finals: "'"
+    delimiter: " '"
+    algebra:
+        - erase/^xx$/
+        - erase/^hm$/
+        - erase/^m$/
+        - erase/^n$/
+        - erase/^ng$/
 
-    # 模糊音区域
-    # 依据个人情况修改注释～
-    # 注释格式：键盘的输入码 -> 转化后的输入码
+        # 模糊音区域
+        # 依据个人情况修改注释～
+        # 注释格式：键盘的输入码 -> 转化后的输入码
 
-    # 声母部分
-    # - derive/^([z])h/$1/ # z -> zh
-    # - derive/^([z])([^h])/$1h$2/ # zh -> z
-    # - derive/^([c])h/$1/ # c -> ch
-    # - derive/^([c])([^h])/$1h$2/ # ch -> c
-    # - derive/^([s])h/$1/ # s -> sh
-    # - derive/^([s])([^h])/$1h$2/ # sh -> s
-    # - derive/^l/n/ # n -> l
-    # - derive/^n/l/ # l -> n
-    # - derive/^r/l/ # l -> r
-    # - derive/^r/y/ # y -> r
-    # - derive/^hu$/fu/ # fu -> hu
-    # - derive/^fu$/hu/ # hu -> fu
+        # 声母部分
+        # - derive/^([z])h/$1/ # z -> zh
+        # - derive/^([z])([^h])/$1h$2/ # zh -> z
+        # - derive/^([c])h/$1/ # c -> ch
+        # - derive/^([c])([^h])/$1h$2/ # ch -> c
+        # - derive/^([s])h/$1/ # s -> sh
+        # - derive/^([s])([^h])/$1h$2/ # sh -> s
+        # - derive/^l/n/ # n -> l
+        # - derive/^n/l/ # l -> n
+        # - derive/^r/l/ # l -> r
+        # - derive/^r/y/ # y -> r
+        # - derive/^hu$/fu/ # fu -> hu
+        # - derive/^fu$/hu/ # hu -> fu
 
-    # 韵母部分
-    - derive/([^iu])([a])n$/$1$2ng/ # ang -> an
-    - derive/([^iu])([a])ng$/$1$2n/ # an -> ang
-    - derive/([e])n$/$1ng/ # eng -> en
-    - derive/([e])ng$/$1n/ # en -> eng
-    - derive/([i])n$/$1ng/ # ing -> in
-    - derive/([i])ng$/$1n/ # in -> ing
-    - derive/([i])an$/$1ang/ # iang -> ian
-    - derive/([i])ang$/$1an/ # ian -> iang
-    # 由于小鹤双拼特性，无需 uang <-> iang
+        # 韵母部分
+        - derive/([^iu])([a])n$/$1$2ng/ # ang -> an
+        - derive/([^iu])([a])ng$/$1$2n/ # an -> ang
+        - derive/([e])n$/$1ng/ # eng -> en
+        - derive/([e])ng$/$1n/ # en -> eng
+        - derive/([i])n$/$1ng/ # ing -> in
+        - derive/([i])ng$/$1n/ # in -> ing
+        - derive/([i])an$/$1ang/ # iang -> ian
+        - derive/([i])ang$/$1an/ # ian -> iang
+        # 由于小鹤双拼特性，无需 uang <-> iang
 
-    # 其它模糊音
-    # - derive/^hui$/fei/ # fei -> hui
-    # - derive/^fei$/hui/ # hui -> fei
-    # - derive/^huang$/wang/ # wang -> huang
-    # - derive/^wang$/huang/ # huang -> wang
-    # - derive/^([bpmfw])eng$/$1ong/ # bpmfw 后接 ong -> bpmfw 后接 eng
+        # 其它模糊音
+        # - derive/^hui$/fei/ # fei -> hui
+        # - derive/^fei$/hui/ # hui -> fei
+        # - derive/^huang$/wang/ # wang -> huang
+        # - derive/^wang$/huang/ # huang -> wang
+        # - derive/^([bpmfw])eng$/$1ong/ # bpmfw 后接 ong -> bpmfw 后接 eng
 
-    # 小鹤双拼码表
-    - derive/^([jqxy])u$/$1v/
-    - derive/^([aoe])([ioun])$/$1$1$2/
-    - xform/^([aoe])(ng)?$/$1$1$2/
-    - xform/iu$/Q/
-    - xform/(.)ei$/$1W/
-    - xform/uan$/R/
-    - xform/[uv]e$/T/
-    - xform/un$/Y/
-    - xform/^sh/U/
-    - xform/^ch/I/
-    - xform/^zh/V/
-    - xform/uo$/O/
-    - xform/ie$/P/
-    - xform/i?ong$/S/
-    - xform/ing$|uai$/K/
-    - xform/(.)ai$/$1D/
-    - xform/(.)en$/$1F/
-    - xform/(.)eng$/$1G/
-    - xform/[iu]ang$/L/
-    - xform/(.)ang$/$1H/
-    - xform/ian$/M/
-    - xform/(.)an$/$1J/
-    - xform/(.)ou$/$1Z/
-    - xform/[iu]a$/X/
-    - xform/iao$/N/
-    - xform/(.)ao$/$1C/
-    - xform/ui$/V/
-    - xform/in$/B/
-    - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
+        # 小鹤双拼码表
+        - derive/^([jqxy])u$/$1v/
+        - derive/^([aoe])([ioun])$/$1$1$2/
+        - xform/^([aoe])(ng)?$/$1$1$2/
+        - xform/iu$/Q/
+        - xform/(.)ei$/$1W/
+        - xform/uan$/R/
+        - xform/[uv]e$/T/
+        - xform/un$/Y/
+        - xform/^sh/U/
+        - xform/^ch/I/
+        - xform/^zh/V/
+        - xform/uo$/O/
+        - xform/ie$/P/
+        - xform/i?ong$/S/
+        - xform/ing$|uai$/K/
+        - xform/(.)ai$/$1D/
+        - xform/(.)en$/$1F/
+        - xform/(.)eng$/$1G/
+        - xform/[iu]ang$/L/
+        - xform/(.)ang$/$1H/
+        - xform/ian$/M/
+        - xform/(.)an$/$1J/
+        - xform/(.)ou$/$1Z/
+        - xform/[iu]a$/X/
+        - xform/iao$/N/
+        - xform/(.)ao$/$1C/
+        - xform/ui$/V/
+        - xform/in$/B/
+        - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
 
-    # 简拼支持
-    - abbrev/^(.).+$/$1/
+        # 简拼支持
+        - abbrev/^(.).+$/$1/
 
 translator:
-  dictionary: chinese_pinyin
-  prism: chinese_flypy_xhup # 值与id相同, 如果去掉会变全拼
-  contextual_suggestions: true
-  # max_homophones: 7
-  preedit_format:
-    # 输入码翻译为拼音
-    # - xform/([bpmfdtnljqx])n/$1iao/
-    # - xform/(\w)g/$1eng/
-    # - xform/(\w)q/$1iu/
-    # - xform/(\w)w/$1ei/
-    # - xform/([dtnlgkhjqxyvuirzcs])r/$1uan/
-    # - xform/(\w)t/$1ve/
-    # - xform/(\w)y/$1un/
-    # - xform/([dtnlgkhvuirzcs])o/$1uo/
-    # - xform/(\w)p/$1ie/
-    # - xform/([jqx])s/$1iong/
-    # - xform/(\w)s/$1ong/
-    # - xform/(\w)d/$1ai/
-    # - xform/(\w)f/$1en/
-    # - xform/(\w)h/$1ang/
-    # - xform/(\w)j/$1an/
-    # - xform/([gkhvuirzcs])k/$1uai/
-    # - xform/(\w)k/$1ing/
-    # - xform/([jqxnl])l/$1iang/
-    # - xform/(\w)l/$1uang/
-    # - xform/(\w)z/$1ou/
-    # - xform/([gkhvuirzcs])x/$1ua/
-    # - xform/(\w)x/$1ia/
-    # - xform/(\w)c/$1ao/
-    # - xform/([dtgkhvuirzcs])v/$1ui/
-    # - xform/(\w)b/$1in/
-    # - xform/(\w)m/$1ian/
-    # - xform/([aoe])\1(\w)/$1$2/
-    # - "xform/(^|[ '])v/$1zh/"
-    # - "xform/(^|[ '])i/$1ch/"
-    # - "xform/(^|[ '])u/$1sh/"
-    # - xform/([jqxy])v/$1u/
-    # - xform/([nl])v/$1ü/
-    # - xform/ // # 去掉上屏字符间空格
+    dictionary: chinese_pinyin
+    prism: chinese_flypy_xhup # 值与id相同, 如果去掉会变全拼
+    contextual_suggestions: true
+    # max_homophones: 7
+    preedit_format:
+        # 输入码翻译为拼音
+        # - xform/([bpmfdtnljqx])n/$1iao/
+        # - xform/(\w)g/$1eng/
+        # - xform/(\w)q/$1iu/
+        # - xform/(\w)w/$1ei/
+        # - xform/([dtnlgkhjqxyvuirzcs])r/$1uan/
+        # - xform/(\w)t/$1ve/
+        # - xform/(\w)y/$1un/
+        # - xform/([dtnlgkhvuirzcs])o/$1uo/
+        # - xform/(\w)p/$1ie/
+        # - xform/([jqx])s/$1iong/
+        # - xform/(\w)s/$1ong/
+        # - xform/(\w)d/$1ai/
+        # - xform/(\w)f/$1en/
+        # - xform/(\w)h/$1ang/
+        # - xform/(\w)j/$1an/
+        # - xform/([gkhvuirzcs])k/$1uai/
+        # - xform/(\w)k/$1ing/
+        # - xform/([jqxnl])l/$1iang/
+        # - xform/(\w)l/$1uang/
+        # - xform/(\w)z/$1ou/
+        # - xform/([gkhvuirzcs])x/$1ua/
+        # - xform/(\w)x/$1ia/
+        # - xform/(\w)c/$1ao/
+        # - xform/([dtgkhvuirzcs])v/$1ui/
+        # - xform/(\w)b/$1in/
+        # - xform/(\w)m/$1ian/
+        # - xform/([aoe])\1(\w)/$1$2/
+        # - "xform/(^|[ '])v/$1zh/"
+        # - "xform/(^|[ '])i/$1ch/"
+        # - "xform/(^|[ '])u/$1sh/"
+        # - xform/([jqxy])v/$1u/
+        # - xform/([nl])v/$1ü/
+        # - xform/ // # 去掉上屏字符间空格
 
 grammar:
-  language: octagram/zh-hans-t-essay-bgw
+    language: octagram/zh-hans-t-essay-bgw
 
 traditionalize:
-  option_name: traditionalization
-  opencc_config: s2t.json             # s2t.json | s2hk.json | s2tw.json | s2twp.json  # 如果选择台湾繁体，长句子正常，但1~2个字时无法正确转换台湾繁体，仍然显示香港繁体，不知道为啥。
-  tips: all                           # 转换提示: all 都显示 | char 仅单字显示 | none 不显示。
-  excluded_types: [ reverse_lookup ]  # 不转换反查的内容
+    option_name: traditionalization
+    opencc_config: s2t.json # s2t.json | s2hk.json | s2tw.json | s2twp.json  # 如果选择台湾繁体，长句子正常，但1~2个字时无法正确转换台湾繁体，仍然显示香港繁体，不知道为啥。
+    tips: all # 转换提示: all 都显示 | char 仅单字显示 | none 不显示。
+    excluded_types: [reverse_lookup] # 不转换反查的内容
 
 punctuator:
     import_preset: symbols
-    full_shape:
-        '1': '壹'
-        '2': '貳'
-        '3': '參'
-        '4': '肆'
-        '5': '伍'
-        '6': '陸'
-        '7': '柒'
-        '8': '捌'
-        '9': '玖'
-        '0': '零'
-        's': '拾'
-        'b': '佰'
-        'q': '仟'
-        'w': '萬'
-        'n': '年'
-        'y': ['月', '圓', '億']
-        'r': '日'
-        'x': '星期'
-        'j': '角'
-        'f': '分'
-        'z': ['之', '整']
-        'd': '第'
-        'h': '號'
 
 key_binder:
-  import_preset: default
-  bindings:
-    - { accept: semicolon, send: 2, when: has_menu } #分号次选
+    import_preset: default
+    bindings:
+        - { accept: semicolon, send: 2, when: has_menu } #分号次选
 
 recognizer:
-  import_preset: default
-  patterns:
-    punct: "^/([0-9]0?|[A-Za-z]+)$" # Symbol
-    # reverse_lookup: "^~[a-z]*'?$" # 笔画反查
-    # email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
-    # uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
-    # html: "^<[a-z]+>$"
-    # camel: "[a-z]+[A-Z].*$"
-    # url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]{1,11}[.:_].*$"
+    import_preset: default
+    patterns:
+        punct: "^/([0-9]0?|[A-Za-z]+)$" # Symbol
+        # reverse_lookup: "^~[a-z]*'?$" # 笔画反查
+        # email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
+        # uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
+        # html: "^<[a-z]+>$"
+        # camel: "[a-z]+[A-Z].*$"
+        # url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]{1,11}[.:_].*$"
 
 custom_phrase:
-  dictionary: ""
-  user_dict: custom_phrase
-  db_class: stabledb
-  enable_completion: false
-  enable_sentence: true
-  initial_quality: 1
+    dictionary: ""
+    user_dict: custom_phrase
+    db_class: stabledb
+    enable_completion: false
+    enable_sentence: true
+    initial_quality: 1
 
 reverse_lookup:
-  dictionary: stroke
-  enable_completion: true
-  prefix: "~"
-  suffix: "'"
-  tips: 〔筆畫〕
-  preedit_format:
-    - xlit/hspnz/一丨丿丶乙/
-  comment_format:
-    - xform/([nl])v/$1ü/
+    dictionary: stroke
+    enable_completion: true
+    prefix: "~"
+    suffix: "'"
+    tips: 〔筆畫〕
+    preedit_format:
+        - xlit/hspnz/一丨丿丶乙/
+    comment_format:
+        - xform/([nl])v/$1ü/
