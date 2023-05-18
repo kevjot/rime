@@ -3,17 +3,14 @@
 
 schema:
     schema_id: chinese_flypy
-    name: '小鶴音形'
-    version: '10.9.4'
+    name: "小鶴音形"
+    version: "10.9.4"
     author:
         - 方案设计：何海峰 <flypy@qq.com>
         - Modified by Kevin <kevobras@gmail.com>
     description: |
         小鹤音形输入法
     dependencies:
-
-punctuator:
-    import_preset: default
 
 switches:
     - name: simplification
@@ -48,22 +45,28 @@ engine:
         - punct_translator
         - table_translator
         - lua_translator@date_translator
-        - table_translator@custom_phraseVD
-        - table_translator@custom_phraseXT
-        - table_translator@custom_phraseYH
-        - table_translator@custom_phraseQMZ
+        # - table_translator@custom_phrase
+        - table_translator@custom_phraseTOP
+        - table_translator@custom_phraseSYS
+        - table_translator@custom_phraseUSER
+        - table_translator@custom_phraseFULL
         - reverse_lookup_translator
         - history_translator@history
         - lua_translator@calculator_translator
-
     filters:
         - simplifier
         - simplifier@simplification
+        - simplifier@emoji_suggestion
         - uniquifier
+
+emoji_suggestion:
+    opencc_config: emoji.json
+    option_name: emoji_suggestion
+    tips: all
 
 speller:
     alphabet: "abcdefghijklmnopqrstuvwxyz;'"
-    initials: ';abcdefghijklmnopqrstuvwxyz'
+    initials: ";abcdefghijklmnopqrstuvwxyz"
     finals: "'"
     #delimiter: " '"
     max_code_length: 4
@@ -75,10 +78,10 @@ translator:
     dictionary: chinese_flypy
     enable_charset_filter: false
     enable_sentence: false
-    enable_completion: false # 编码提示开关
+    enable_completion: true # 编码提示开关
     enable_user_dict: false
     disable_user_dict_for_patterns:
-        - '^z.*$'
+        - "^z.*$"
 
 history:
     input: ;f
@@ -90,37 +93,45 @@ simplification:
     option_name: simplification
     tips: all #简繁对照
 
-custom_phraseVD:
-    dictionary: ''
+custom_phraseTOP:
+    dictionary: ""
     user_dict: ./dicts.zh/chinese_flypy_top
     db_class: stabledb
     enable_sentence: false
     enable_completion: false
     initial_quality: 0 #用户词和系统词重码 置顶
 
-custom_phraseXT:
-    dictionary: ''
+custom_phraseSYS:
+    dictionary: ""
     user_dict: ./dicts.zh/chinese_flypy_sys
     db_class: stabledb
     enable_sentence: false
     enable_completion: false
     initial_quality: -1 #本表词和系统词重码居后
 
-custom_phraseYH:
-    dictionary: ''
+custom_phraseUSER:
+    dictionary: ""
     user_dict: ./dicts.zh/chinese_flypy_user
     db_class: stabledb
     enable_sentence: false
     enable_completion: false
     initial_quality: -1 #用户词和系统词重码居后
 
-custom_phraseQMZ:
-    dictionary: ''
+custom_phraseFULL:
+    dictionary: ""
     user_dict: ./dicts.zh/chinese_flypy_full
     db_class: stabledb
     enable_sentence: false
     enable_completion: false
     initial_quality: -1 #和系统词重码时居后
+
+custom_phrase:
+    dictionary: ""
+    user_dict: custom_phrase
+    db_class: stabledb
+    enable_completion: false
+    enable_sentence: true
+    initial_quality: 1
 
 reverse_lookup:
     dictionary: chinese_flypydz
@@ -128,6 +139,9 @@ reverse_lookup:
         # - xform/^/〔/
         # - xform/$/〕/
         - xform/ / /
+
+punctuator:
+    import_preset: default
 
 key_binder:
     import_preset: default #方案切换相关
@@ -147,10 +161,10 @@ recognizer:
     import_preset: default
     patterns:
         #uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
-        uppercase: '' #中文状态大写锁定直接上屏
-        reverse_lookup: '[a-z`]*`+[a-z`]*'
-        punct: ''
-        expression: '^=.*$'
+        uppercase: "" #中文状态大写锁定直接上屏
+        reverse_lookup: "[a-z`]*`+[a-z`]*"
+        punct: ""
+        expression: "^=.*$"
 
 menu:
-    page_size: 2 #候选项数
+    page_size: 4 #候选项数

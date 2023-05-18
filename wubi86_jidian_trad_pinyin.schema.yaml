@@ -3,7 +3,7 @@
 
 schema:
   schema_id: wubi86_jidian_trad_pinyin
-  name: "拼音混输繁体"
+  name: "漢語·五筆·拼音混输繁体"
   version: "1.0"
   author:
     - 创始人 王永民先生
