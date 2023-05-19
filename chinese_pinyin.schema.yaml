@@ -4,8 +4,8 @@
 
 schema:
     schema_id: chinese_pinyin
-    name: '漢語·全拼'
-    version: '1.0.0'
+    name: "漢語·全拼"
+    version: "1.0.0"
     author:
         - fkxxyz
     description: |
@@ -19,7 +19,7 @@ switches:
       states: [简, 繁]
     - name: emoji_suggestion
       reset: 1
-      states: ['😑️', '😁️']
+      states: ["😑️", "😁️"]
     # - name: symbol_support
     #   reset: 1
     #   states: [ "无符", "符" ]
@@ -109,90 +109,90 @@ translator:
 punctuator:
     import_preset: symbols
     full_shape:
-        '`': '｀'
-        '~': '～'
-        '!': '！'
-        '@': '＠'
-        '#': '＃'
-        '$': '￥'
-        '%': '％'
-        '^': '……'
-        '&': '＆'
-        '*': '×'
-        '(': '（'
-        ')': '）'
-        '_': '——'
-        '+': '＋'
-        '-': '－'
-        '=': '＝'
-        '[': '【'
-        ']': '】'
-        '{': '｛'
-        '}': '｝'
-        '|': '｜'
-        "\\": '、'
-        '/': '、'
-        ';': '；'
-        "'": '‘'
-        ',': '，'
-        '.': '。'
-        '<': '《'
-        '>': '》'
-        '?': '？'
-        '1': '壹'
-        '2': '貳'
-        '3': '參'
-        '4': '肆'
-        '5': '伍'
-        '6': '陸'
-        '7': '柒'
-        '8': '捌'
-        '9': '玖'
-        '0': '零'
-        's': '拾'
-        'b': '佰'
-        'q': '仟'
-        'w': '萬'
-        'n': '年'
-        'y': ['月', '圓', '億']
-        'r': '日'
-        'x': '星期'
-        'j': '角'
-        'f': '分'
-        'z': ['之', '整']
-        'd': '第'
-        'h': '號'
+        "`": "｀"
+        "~": "～"
+        "!": "！"
+        "@": "＠"
+        "#": "＃"
+        "$": "￥"
+        "%": "％"
+        "^": "……"
+        "&": "＆"
+        "*": "×"
+        "(": "（"
+        ")": "）"
+        "_": "——"
+        "+": "＋"
+        "-": "－"
+        "=": "＝"
+        "[": "【"
+        "]": "】"
+        "{": "｛"
+        "}": "｝"
+        "|": "｜"
+        "\\": "、"
+        "/": "、"
+        ";": "；"
+        "'": "‘"
+        ",": "，"
+        ".": "。"
+        "<": "《"
+        ">": "》"
+        "?": "？"
+        "1": "壹"
+        "2": "貳"
+        "3": "參"
+        "4": "肆"
+        "5": "伍"
+        "6": "陸"
+        "7": "柒"
+        "8": "捌"
+        "9": "玖"
+        "0": "零"
+        "s": "拾"
+        "b": "佰"
+        "q": "仟"
+        "w": "萬"
+        "n": "年"
+        "y": ["月", "圓", "億"]
+        "r": "日"
+        "x": "星期"
+        "j": "角"
+        "f": "分"
+        "z": ["之", "整"]
+        "d": "第"
+        "h": "號"
     half_shape:
-        '`': '·'
-        '~': '～'
-        '!': '！'
-        '@': '@'
-        '#': '#'
-        '$': '￥'
-        '%': '%'
-        '^': '……'
-        '&': '&'
-        '*': '×'
-        '(': '（'
-        ')': '）'
-        '_': '——'
-        '+': '+'
-        '-': '-'
-        '=': '='
-        '[': '【'
-        ']': '】'
-        '{': '｛'
-        '}': '｝'
-        '|': '｜'
-        "\\": '、'
-        '/': '、'
-        ';': '；'
-        "'": '’'
-        ',': '，'
-        '.': '。'
-        '<': '《'
-        '>': '》'
-        '?': '？'
+        "`": "·"
+        "~": "～"
+        "!": "！"
+        "@": "@"
+        "#": "#"
+        "$": "￥"
+        "%": "%"
+        "^": "……"
+        "&": "&"
+        "*": "×"
+        "(": "（"
+        ")": "）"
+        "_": "——"
+        "+": "+"
+        "-": "-"
+        "=": "="
+        "[": "【"
+        "]": "】"
+        "{": "｛"
+        "}": "｝"
+        "|": "｜"
+        "\\": "、"
+        "/": "、"
+        ";": "；"
+        "'": "’"
+        ",": "，"
+        ".": "。"
+        "<": "《"
+        ">": "》"
+        "?": "？"
 
 key_binder:
     import_preset: default
@@ -218,46 +218,44 @@ ascii_composer:
     #   Caps_Lock: noop
     #   Eisu_toggle: clear
 
-
-  # 反查配置，若需要反查，则反注释 reverse_lookup 块
-  # reverse_lookup:
-  #   # 反查詞典設定
-  #   dictionary: chinese_liangfen
-  #   # 提前顯示尚未輸入完整碼的字〔僅 table_translator 有效〕
-  #   enable_completion: true
-  #   # 前綴
-  #   prefix: "`"
-  #   # 後綴
-  #   suffix: "'"
-  #   # 開始提示符
-  #   tips: 〔两分〕
-  #   # 上屏碼格
-  #   preedit_format:
-  #     - xlit/hspnz/一丨丿丶乙/
-  #   # 提示碼格式
-  #   comment_format:
-  #     - xform/([nl])v/$1ü/
+    # 反查配置，若需要反查，则反注释 reverse_lookup 块
+    # reverse_lookup:
+    #   # 反查詞典設定
+    #   dictionary: chinese_liangfen
+    #   # 提前顯示尚未輸入完整碼的字〔僅 table_translator 有效〕
+    #   enable_completion: true
+    #   # 前綴
+    #   prefix: "`"
+    #   # 後綴
+    #   suffix: "'"
+    #   # 開始提示符
+    #   tips: 〔两分〕
+    #   # 上屏碼格
+    #   preedit_format:
+    #     - xlit/hspnz/一丨丿丶乙/
+    #   # 提示碼格式
+    #   comment_format:
+    #     - xform/([nl])v/$1ü/
 
 recognizer:
     patterns:
-      punct: "^/([0-9]0?|[A-Za-z]+)$"
-      # reverse_lookup: "`[a-z]*'?$" # 反查
+        punct: "^/([0-9]0?|[A-Za-z]+)$"
+        # reverse_lookup: "`[a-z]*'?$" # 反查
 
+    # 自定义词库
+# custom_phrase:
+#     dictionary: ""
+#     user_dict: custom_phrase
+#     db_class: stabledb
+#     enable_completion: false
+#     enable_sentence: false
+#     initial_quality: 1
+# "engine/translators/@5": table_translator@custom_phrase
 
-  # 自定义词库
-custom_phrase:
-    dictionary: ""
-    user_dict: custom_phrase
-    db_class: stabledb
-    enable_completion: false
-    enable_sentence: false
-    initial_quality: 1
-"engine/translators/@5": table_translator@custom_phrase
-
-# Rx: BlindingDark/rime-easy-en:customize:schema=double_pinyin_flypy
-__include: easy_en:/patch
-easy_en/enable_sentence: false
-# Rx: lotem/rime-octagram-data:customize:schema=luna_pinyin,model=hans
-  # __include: grammar:/hant
-# Rx: BlindingDark/rime-lua-select-character:customize:schema=luna_pinyin
-  # __include: lua_select_character:/patch #需要以词定字插件打开本行注释
+# # Rx: BlindingDark/rime-easy-en:customize:schema=double_pinyin_flypy
+# __include: easy_en:/patch
+# easy_en/enable_sentence: false
+# # Rx: lotem/rime-octagram-data:customize:schema=luna_pinyin,model=hans
+# # __include: grammar:/hant
+# # Rx: BlindingDark/rime-lua-select-character:customize:schema=luna_pinyin
+# # __include: lua_select_character:/patch #需要以词定字插件打开本行注释
