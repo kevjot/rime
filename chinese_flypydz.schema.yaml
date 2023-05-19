@@ -5,7 +5,7 @@
 
 schema:
   schema_id: chinese_flypydz
-  name: "漢語·小鶴音形·反查"
+  name: "☯漢語·小鶴音形·反查"
   version: "10.9.4"
   author:
     - 方案设计：何海峰 <flypy@qq.com>

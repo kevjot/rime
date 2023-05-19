@@ -14,8 +14,8 @@
 
 
 schema:
-  schema_id: numbers
-  name: 漢語·大写数字
+  schema_id: chinese_numbers
+  name: "☯漢語·數字"
   version: "1.2"
   description: 快捷输入大写数字
 

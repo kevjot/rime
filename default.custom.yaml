@@ -2,7 +2,7 @@ customization:
   distribution_code_name: Weasel
   distribution_version: 0.14.3
   generator: "Rime::SwitcherSettings"
-  modified_time: "Fri May 19 13:54:06 2023"
+  modified_time: "Fri May 19 14:01:47 2023"
   rime_version: 1.5.3
 patch:
   "app_options/Code.exe":
@@ -43,8 +43,6 @@ patch:
   schema_list:
     - {schema: chinese_flypy_xhup}
     - {schema: chinese_flypy}
-    - {schema: chinese_wubi86_jidian}
-    - {schema: chinese_pinyin}
   "switcher/hotkeys":
     - F4
   "switcher/save_options":
