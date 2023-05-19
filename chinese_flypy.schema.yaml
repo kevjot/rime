@@ -12,6 +12,9 @@ schema:
         小鹤音形输入法
     dependencies:
 
+punctuator:
+    import_preset: default
+
 switches:
     - name: simplification
       reset: 0
@@ -69,7 +72,7 @@ emoji_suggestion:
 
 speller:
     alphabet: "abcdefghijklmnopqrstuvwxyz;'"
-    initials: ";abcdefghijklmnopqrstuvwxyz"
+    initials: ';abcdefghijklmnopqrstuvwxyz'
     finals: "'"
     #delimiter: " '"
     max_code_length: 4
@@ -81,7 +84,7 @@ translator:
     dictionary: chinese_flypy
     enable_charset_filter: false
     enable_sentence: false
-    enable_completion: true # 编码提示开关
+    enable_completion: false # 编码提示开关
     enable_user_dict: false
     disable_user_dict_for_patterns:
         - "^z.*$"
@@ -142,9 +145,6 @@ reverse_lookup:
         # - xform/^/〔/
         # - xform/$/〕/
         - xform/ / /
-
-punctuator:
-    import_preset: default
 
 key_binder:
     import_preset: default #方案切换相关
