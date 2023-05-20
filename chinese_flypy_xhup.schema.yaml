@@ -239,7 +239,7 @@ custom_phrase:
 reverse_lookup:
     dictionary: stroke
     enable_completion: true
-    prefix: "~"
+    prefix: "`"
     suffix: "'"
     tips: 〔筆畫〕
     preedit_format:
