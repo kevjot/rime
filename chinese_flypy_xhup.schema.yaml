@@ -14,8 +14,7 @@ schema:
         自定义词库
         笔画反查
     dependencies:
-        - english
-        - stroke
+        # - english
 
 switches:
     - name: traditionalization
@@ -55,11 +54,11 @@ engine:
         - punct_translator
         - lua_translator@date_translator # 动态日期时间输入
         - table_translator@custom_phrase # 用户自定义词典
-        - table_translator@english # 英文输入
+        # - table_translator@english # 英文输入
         - reverse_lookup_translator
         - script_translator
     filters:
-        - simplifier@emoji_suggestion
+        # - simplifier@emoji_suggestion
         - simplifier@traditionalize # 简入繁出
         # - lua_filter@long_phrase_first # 最长词组和单字在先
         # - lua_filter@single_char_first # 单字优先
@@ -164,7 +163,7 @@ translator:
     prism: chinese_flypy_xhup # 值与id相同, 如果去掉会变全拼
     contextual_suggestions: true
     # max_homophones: 7
-    preedit_format:
+    # preedit_format:
         # 输入码翻译为拼音
         # - xform/([bpmfdtnljqx])n/$1iao/
         # - xform/(\w)g/$1eng/
@@ -209,8 +208,8 @@ traditionalize:
     tips: all # 转换提示: all 都显示 | char 仅单字显示 | none 不显示。
     excluded_types: [reverse_lookup] # 不转换反查的内容
 
-punctuator:
-    import_preset: symbols
+# punctuator:
+#     import_preset: symbols
 
 key_binder:
     import_preset: default
@@ -221,7 +220,8 @@ recognizer:
     import_preset: default
     patterns:
         punct: "^/([0-9]0?|[A-Za-z]+)$" # Symbol
-        # reverse_lookup: "^~[a-z]*'?$" # 笔画反查
+        # reverse_lookup: "^`[a-z]*'?$" # 反查
+        reverse_lookup: "[a-z`]*`+[a-z`]*" # 反查
         # email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
         # uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
         # html: "^<[a-z]+>$"
@@ -237,12 +237,10 @@ custom_phrase:
     initial_quality: 1
 
 reverse_lookup:
-    dictionary: stroke
+    dictionary: chinese_flypydz
     enable_completion: true
     prefix: "`"
     suffix: "'"
-    tips: 〔筆畫〕
-    preedit_format:
-        - xlit/hspnz/一丨丿丶乙/
+    tips: 〔音形〕
     comment_format:
-        - xform/([nl])v/$1ü/
+        - xform/.*// # 清空提示码

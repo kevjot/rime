@@ -141,10 +141,14 @@ custom_phrase:
 
 reverse_lookup:
     dictionary: chinese_flypydz
+    enable_completion: true
+    prefix: "`"
+    suffix: "'"
+    tips: 〔音形〕
     comment_format:
         # - xform/^/〔/
         # - xform/$/〕/
-        - xform/ / /
+        # - xform/ / /
 
 key_binder:
     import_preset: default #方案切换相关
