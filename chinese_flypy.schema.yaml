@@ -141,7 +141,6 @@ custom_phrase:
 
 reverse_lookup:
     dictionary: chinese_flypydz
-    enable_completion: true
     prefix: "`"
     suffix: "'"
     tips: 〔音形〕
