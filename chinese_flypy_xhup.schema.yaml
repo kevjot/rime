@@ -80,7 +80,7 @@ english:
         - xform/.*// # 清空提示码
 
 speller:
-    alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA/
+    alphabet: zyxwvutsrqponmlkjihgfedcba/
     # finals: "'"
     delimiter: " '"
     algebra:
