@@ -1,9 +1,9 @@
 customization:
   distribution_code_name: Weasel
-  distribution_version: 0.14.3
+  distribution_version: 0.15.0.0
   generator: "Rime::SwitcherSettings"
-  modified_time: "Mon May 22 13:07:25 2023"
-  rime_version: 1.5.3
+  modified_time: "Fri Jun 23 23:11:15 2023"
+  rime_version: 1.8.5
 patch:
   "app_options/Code.exe":
     ascii_mode: true
@@ -19,12 +19,11 @@ patch:
     ascii_mode: true
   "app_options/sublime_text.exe":
     ascii_mode: true
-  "ascii_composer/good_old_caps_lock": false
   "ascii_composer/switch_key":
+    Caps_Lock: clear
+    Eisu_toggle: clear
     Control_L: noop
     Control_R: noop
-    Caps_Lock: noop
-    Eisu_toggle: clear
     Shift_L: noop
     Shift_R: commit_code
   "key_binder/bindings":
@@ -44,6 +43,7 @@ patch:
   schema_list:
     - {schema: chinese_flypy_xhup}
     - {schema: chinese_flypy}
+    - {schema: chinese_flypydz}
   "switcher/hotkeys":
     - F4
   "switcher/save_options":
