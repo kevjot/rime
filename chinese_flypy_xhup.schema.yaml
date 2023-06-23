@@ -3,7 +3,7 @@
 
 schema:
     schema_id: chinese_flypy_xhup
-    name: "☯漢語·小鶴雙拼"
+    name: "✒️漢語·小鶴雙拼"
     version: "0.1"
     author:
         - double pinyin layout by 鶴

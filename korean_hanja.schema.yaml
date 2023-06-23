@@ -4,7 +4,7 @@
 
 schema:
   schema_id: korean_hanja
-  name: "☯韓語·漢字"
+  name: "✒️韓語·漢字"
   version: "0.51"
   author:
     - Patrick <ipatrickmac@me.com>
