@@ -17,8 +17,8 @@ switches:
     - name: traditionalization
       reset: 0
       # states: [ 简, 繁 ]
-    - name: emoji_suggestion
-      reset: 0
+    # - name: emoji_suggestion
+    #   reset: 0
       # states: [ "😑️", "😁️" ]
     - name: ascii_punct
       reset: 1
@@ -63,10 +63,10 @@ engine:
         # - lua_filter@single_char_first # 单字优先
         # - lua_filter@single_char_only # 只显示单字
 
-emoji_suggestion:
-    opencc_config: emoji.json
-    option_name: emoji_suggestion
-    tips: all
+# emoji_suggestion:
+#     opencc_config: emoji.json
+#     option_name: emoji_suggestion
+#     tips: all
 
 english:
     dictionary: english
