@@ -2,29 +2,29 @@ customization:
   distribution_code_name: Weasel
   distribution_version: 0.15.0.0
   generator: "Rime::SwitcherSettings"
-  modified_time: "Fri Jun 23 23:11:15 2023"
+  modified_time: "Sun Jul  2 18:17:13 2023"
   rime_version: 1.8.5
 patch:
-  "app_options/Code.exe":
-    ascii_mode: true
-  "app_options/Listary.exe":
-    ascii_mode: true
-  "app_options/WindowsTerminal.exe":
-    ascii_mode: true
-  "app_options/espansod.exe":
-    ascii_mode: true
-  "app_options/eudic.exe":
-    ascii_mode: true
-  "app_options/notepad++.exe":
-    ascii_mode: true
-  "app_options/sublime_text.exe":
-    ascii_mode: true
+  # "app_options/Code.exe":
+  #   ascii_mode: true
+  # "app_options/Listary.exe":
+  #   ascii_mode: true
+  # "app_options/WindowsTerminal.exe":
+  #   ascii_mode: true
+  # "app_options/espansod.exe":
+  #   ascii_mode: true
+  # "app_options/eudic.exe":
+  #   ascii_mode: true
+  # "app_options/notepad++.exe":
+  #   ascii_mode: true
+  # "app_options/sublime_text.exe":
+  #   ascii_mode: true
   "ascii_composer/switch_key":
     Caps_Lock: clear
-    Eisu_toggle: clear
     Control_L: noop
     Control_R: noop
-    Shift_L: noop
+    Eisu_toggle: clear
+    Shift_L: commit_code
     Shift_R: commit_code
   "key_binder/bindings":
     - {accept: "Release+period", send: period, when: composing}
@@ -43,7 +43,7 @@ patch:
   schema_list:
     - {schema: chinese_flypy_xhup}
     - {schema: chinese_flypy}
-    - {schema: chinese_flypydz}
+    - {schema: chinese_pinyin}
   "switcher/hotkeys":
     - F4
   "switcher/save_options":
